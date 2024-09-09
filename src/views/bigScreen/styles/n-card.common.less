@@ -1,0 +1,17 @@
+.n-card {
+  height: 100%;
+  border: none;
+  background-color: transparent;
+  :deep(&__content) {
+    padding: 0;
+    &:first-child {
+      padding: 0;
+    }
+    .n-spin-container {
+      height: 100%;
+      .n-spin-content {
+        height: 100%;
+      }
+    }
+  }
+}

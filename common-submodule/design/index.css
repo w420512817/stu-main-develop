@@ -1,0 +1,14 @@
+@import './transition.css';
+@import './scrollbar.css';
+@import './reset.css';
+
+html,
+body,
+#app {
+  height: 100%;
+}
+
+@font-face {
+  font-family: 'YouSheBiaoTiHei';
+  src: url('./font/title.TTF');
+}

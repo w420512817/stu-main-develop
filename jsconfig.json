@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "jsx": "preserve",
+    "paths": {
+      "@/*": ["src/*"],
+      "@common/*": ["common-submodule/*"]
+    },
+    "allowJs": true
+  },
+  "exclude": ["node_modules", "dist"]
+}

@@ -1,0 +1,46 @@
+.pageCon {
+  width: 100%;
+  height: calc(100vh - 114px);
+  overflow: visible;
+  display: flex;
+}
+.boxStyle {
+  box-sizing: border-box;
+  position: relative;
+  background: linear-gradient(180deg, rgba(0, 50, 94, 0) 0%, rgba(0, 50, 94, 0.45) 100%);
+}
+.boxStyle::after {
+  content: '';
+  width: 100%;
+  display: block;
+  height: 4px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+
+  background-image: url('@/assets/image/bigScreen/content-bottom.png');
+  background-size: 100% 4px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.largeBoxStyle::after {
+  background-image: url('@/assets/image/bigScreen/content-bottom-large.png');
+  background-size: 70% 4px;
+  background-repeat: no-repeat;
+  background-position: left center;
+}
+.no_tit {
+  padding: 0.75vw;
+}
+
+:deep(.rhombus),
+.rhombus {
+  width: 0.5vw;
+  height: 0.5vw;
+  background: #29f0fe;
+  transform: rotateZ(45deg);
+  display: inline-block;
+  &.s2 {
+    background: #feb040;
+  }
+}

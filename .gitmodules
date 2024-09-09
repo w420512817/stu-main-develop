@@ -1,0 +1,4 @@
+[submodule "common-submodule"]
+	path = common-submodule
+	url = http://192.168.50.172:9580/edu_health/3.0/common-submodule.git
+	# url = ssh://git@192.168.50.172:8022/edu_health/3.0/common-submodule.git
