@@ -20,17 +20,17 @@ export function setupRouterGuard(router) {
       return next();
     }
 
-    if (!userStore.isLogin) {
-      // You can access without permissions. You need to set the routing meta.ignoreAuth to true
-      if (!userStore.customerId && !to.query.customerId) {
-        return next({ path: '/403', replace: true });
-      } else {
-        // redirect login page
-        // next({ path: LOGIN_PATH, replace: true, query: { redirect: to.fullPath } });
-        window.location.href = `${LOGIN_PATH}/#/${userStore.customerId || to.query.customerId}/login`;
-        return;
-      }
-    }
+    // if (!userStore.isLogin) {
+    //   // You can access without permissions. You need to set the routing meta.ignoreAuth to true
+    //   if (!userStore.customerId && !to.query.customerId) {
+    //     return next({ path: '/403', replace: true });
+    //   } else {
+    //     // redirect login page
+    //     // next({ path: LOGIN_PATH, replace: true, query: { redirect: to.fullPath } });
+    //     window.location.href = `${LOGIN_PATH}/#/${userStore.customerId || to.query.customerId}/login`;
+    //     return;
+    //   }
+    // }
 
     /**
      * 1. 从登录页跳转未找到页面 重定向为首页
@@ -42,26 +42,26 @@ export function setupRouterGuard(router) {
 
     const query = Object.assign({}, to.query, { customerId: userStore.customerId });
 
-    if (!to.query.customerId) {
-      next({ ...to, query });
-      return;
-    }
+    // if (!to.query.customerId) {
+    //   next({ ...to, query });
+    //   return;
+    // }
 
     if (routeStore.getIsDynamicAddedRoute) {
       return next();
     }
 
-    try {
-      await userStore.getUserInfoAction();
-    } catch (error) {
-      setTimeout(() => {
-        window.$message?.error(error?.message || '获取用户信息失败！');
-      }, 200);
-      userStore.setToken('');
-      window.location.href = `${LOGIN_PATH}/#/${userStore.customerId}/login`;
-      return;
-      // return next({ path: LOGIN_PATH, replace: true, query: { redirect: to.fullPath } });
-    }
+    // try {
+    //   await userStore.getUserInfoAction();
+    // } catch (error) {
+    //   setTimeout(() => {
+    //     window.$message?.error(error?.message || '获取用户信息失败！');
+    //   }, 200);
+    //   userStore.setToken('');
+    //   window.location.href = `${LOGIN_PATH}/#/${userStore.customerId}/login`;
+    //   return;
+    //   // return next({ path: LOGIN_PATH, replace: true, query: { redirect: to.fullPath } });
+    // }
 
     const routes = routeStore.generateRoutes();
     routes.forEach(route => {
