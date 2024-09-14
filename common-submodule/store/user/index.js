@@ -25,7 +25,7 @@ export const useUserStore = defineStore('user-store', {
     areaTree: [], // 地区数据
     permissions: [], // 权限code列表
     noticeSum: 0,
-    userOrgType: '' // 机构类型 详见枚举@common/enum/pageEnum
+    userOrgType: 'GOVERMENT' // 机构类型 详见枚举@common/enum/pageEnum
   }),
   getters: {
     isLogin(state) {
