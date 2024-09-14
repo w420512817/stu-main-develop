@@ -58,7 +58,7 @@
       </n-grid>
     </n-form>
     <n-space mb-4>
-      <n-button v-auth="[9006, 9054, 9102, 9150]" type="primary" @click="openChooseModal">新增筛查</n-button>
+      <n-button type="primary" @click="openChooseModal">新增筛查</n-button>
     </n-space>
 
     <!-- :scroll-x="1500" -->
@@ -158,7 +158,8 @@ async function getDataSource() {
   };
   const data = await getListApi(params);
 
-  dataSource.value = data?.records ?? [];
+  // dataSource.value = data?.records ?? [];
+  dataSource.value = data?.list ?? [];
   setCount(+data.total);
 }
 
@@ -241,8 +242,8 @@ function handleTableClick(key, row = {}) {
       break;
     case AC_DETAILS: {
       let realOrgId = undefined;
-      orgType === 'SCHOOL' && (realOrgId = orgId);
-      ['HOSPITAL', 'SOCIAL'].includes(orgType) && (realOrgId = schoolId);
+      // orgType === 'SCHOOL' && (realOrgId = orgId);
+      // ['HOSPITAL', 'SOCIAL'].includes(orgType) && (realOrgId = schoolId);
       go({ path: '/examine/plan-detail', query: { planId, orgId: realOrgId, planMode } });
       break;
     }

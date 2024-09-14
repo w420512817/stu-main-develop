@@ -296,8 +296,12 @@
           <icon-zondicons:checkmark-outline text-15 class="text-green-500 m-t-24px m-b-24px" />
           <div class="text-xl font-bold m-b-6">{{ planName }}{{ state.edit ? '编辑' : '新增' }}成功</div>
           <n-descriptions label-placement="left" :column="1" class="w-[30%] text-center">
-            <n-descriptions-item :label="`${planName}名称`"> {{ state.planeResult.planName }} </n-descriptions-item>
-            <n-descriptions-item :label="`${planName}日期`"> {{ state.planeResult.startTime }} </n-descriptions-item>
+            <n-descriptions-item :label="`${planName}名称`">
+              {{ formValue.planName || state.planeResult.planName }}
+            </n-descriptions-item>
+            <n-descriptions-item :label="`${planName}日期`">
+              {{ `${formValue.dateValue[0]} ~ ${formValue.dateValue[1]}` || state.planeResult.startTime }}
+            </n-descriptions-item>
             <n-descriptions-item v-if="state.planMode == 1" :label="`${planName}类型`">
               {{ state.planeResult.planTypeLaber }}
             </n-descriptions-item>
@@ -394,7 +398,50 @@ let state = reactive({
   appsList: [],
   allGradeList: [],
   areaList: [], // 计划范围
-  screenItems: [],
+  screenItems: [
+    {
+      screeningTypeId: '1',
+      screeningTypeName: '视力',
+      itemList: [
+        {
+          screeningTypeId: '11',
+          screeningItemName: '裸眼视力'
+        },
+        {
+          screeningTypeId: '12',
+          screeningItemName: '矫正视力'
+        }
+      ]
+    },
+    {
+      screeningTypeId: '2',
+      screeningTypeName: '电脑验光',
+      itemList: [
+        {
+          screeningTypeId: '21',
+          screeningItemName: '球镜度数'
+        },
+        {
+          screeningTypeId: '22',
+          screeningItemName: '柱镜度数'
+        },
+        {
+          screeningTypeId: '23',
+          screeningItemName: '轴位'
+        }
+      ]
+    },
+    {
+      screeningTypeId: '3',
+      screeningTypeName: '其他',
+      itemList: [
+        {
+          screeningTypeId: '31',
+          screeningItemName: 'ok镜度数'
+        }
+      ]
+    }
+  ],
   schoolChoice: [{ ...schoolChoiceOrigin }],
   planMode: 0,
   areaRangeChecked: '', // 计划范围所有选中的值
@@ -461,10 +508,10 @@ const rules = {
   planName: { ...rbq, message: `请输入${planName.value}名称` },
   planYear: { ...rbq, message: `请选择${planName.value}年份`, type: 'number' },
   planType: { ...rbq, message: `请选择${planName.value}类型`, type: 'number' },
-  dateValue: { ...rbq, message: `请选择${planName.value}时间`, type: 'array' },
-  areaRange: { ...rbq, message: `请选择${planName.value}范围`, type: 'array' },
-  appGroupId: { ...rbq, message: '请选择应用组名称' },
-  gradeId: { ...rbq, message: '请选择任务年级', type: 'array' }
+  dateValue: { ...rbq, message: `请选择${planName.value}时间`, type: 'array' }
+  // areaRange: { ...rbq, message: `请选择${planName.value}范围`, type: 'array' },
+  // appGroupId: { ...rbq, message: '请选择应用组名称' },
+  // gradeId: { ...rbq, message: '请选择任务年级', type: 'array' }
 };
 async function dataChange() {
   await nextTick();
@@ -1072,37 +1119,37 @@ function validateTableNum() {
   let overstep = [];
   let stuCountField = userStore.userInfo.govLevel == 3 ? 'gradeNum' : 'stuCount';
   let school = GovLevelEnum[userStore.userInfo.govLevel] === 'REGION';
-  for (let i = 0; i < arr.length; i++) {
-    const item = arr[i];
-    let area = GovLevelEnum[item.level] === 'REGION';
-    if (item.screeningNum > item[stuCountField]) {
-      let vstrp = {
-        regionName: item.regionName,
-        gradeNum: item[stuCountField],
-        screeningNum: item.screeningNum
-      };
-      // 账号为学校身份 并且筛查树为学校
-      if (school && GovLevelEnum[item.level] === 'SCHOOL') {
-        overstep.push(vstrp);
-      } else if (area && !school) {
-        // 账号为政府身份 并且筛查树不为为学校
-        overstep.push(vstrp);
-      }
-    }
-    if (item.children?.length) {
-      arr.push(...item.children);
-    }
-  }
-  if (overstep.length) {
-    showScreenNumWraning(
-      overstep,
-      () => {
-        state.current++;
-      },
-      { title: '是否进行下一步', positiveText: '下一步' }
-    );
+  // for (let i = 0; i < arr.length; i++) {
+  //   const item = arr[i];
+  //   let area = GovLevelEnum[item.level] === 'REGION';
+  //   if (item.screeningNum > item[stuCountField]) {
+  //     let vstrp = {
+  //       regionName: item.regionName,
+  //       gradeNum: item[stuCountField],
+  //       screeningNum: item.screeningNum
+  //     };
+  //     // 账号为学校身份 并且筛查树为学校
+  //     if (school && GovLevelEnum[item.level] === 'SCHOOL') {
+  //       overstep.push(vstrp);
+  //     } else if (area && !school) {
+  //       // 账号为政府身份 并且筛查树不为为学校
+  //       overstep.push(vstrp);
+  //     }
+  //   }
+  //   if (item.children?.length) {
+  //     arr.push(...item.children);
+  //   }
+  // }
+  // if (overstep.length) {
+  showScreenNumWraning(
+    overstep,
+    () => {
+      state.current++;
+    },
+    { title: '是否进行下一步', positiveText: '下一步' }
+  );
 
-    throw Error('目标学生数量超过学生总数');
-  }
+  throw Error('目标学生数量超过学生总数');
+  // }
 }
 </script>

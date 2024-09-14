@@ -1,35 +1,190 @@
-import { resultPageSuccess } from '../utils';
+/*
+ * @Author: wjq-work\wjq wjq4416@163.com
+ * @Date: 2024-09-09 13:00:59
+ * @LastEditors: wjq-work\wjq
+ * @LastEditTime: 2024-09-14 18:36:42
+ */
+import { method } from 'lodash-es';
+import { resultPageSuccess, resultSuccess } from '../utils';
 // import { Random } from 'mockjs';
 
 const list = (() => {
   const result = [];
-  for (let index = 0; index < 200; index++) {
+  for (let index = 0; index < 20; index++) {
     result.push({
       id: `${index}`,
-      year: '@date("yyyy")',
-      name: '@cword(2,8)',
+      planId: `${index + 1}`,
+      planYear: '@date("yyyy")',
+      planName: '@cword(2,8)',
+      planMode: '1',
       'appType|1': ['视力筛查', '体检筛查', '龋齿筛查'],
-      'type|1': ['普查', '自查'],
-      range: '@county(true)',
-      startDate: '@date("yyyy-MM-dd")', // @date("yyyy-MM-dd HH:mm:ss")
-      endDate: '@date("yyyy-MM-dd")', // @date("yyyy-MM-dd HH:mm:ss")
-      'status|1': ['待开始', '进行中', '已完成', '已超时'],
-      orgName: '杭州教育局',
+      'type|1': ['普查', '抽查'],
+      planRange: '@county(true)',
+      startTime: '@date("yyyy-MM-dd")', // @date("yyyy-MM-dd HH:mm:ss")
+      endTime: '@date("yyyy-MM-dd")', // @date("yyyy-MM-dd HH:mm:ss")
+      'planStatus|1': ['待开始', '进行中', '已完成', '已超时'],
+      creatorOrgName: '杭州教育局',
+      'rate|0-100': 10,
       plan: '@cword(2,5)' + '计划',
       school: '杭一高'
     });
   }
   return result;
 })();
-
+const resultObj = {
+  levelLoading: false,
+  areaLevel: '1',
+  nowLevel: '1',
+  nowAreaId: '',
+  levelData: [],
+  schoolData: [],
+  originAreaId: '',
+  planId: '1',
+  loading: false,
+  planName: '@cword(2,8)',
+  planYear: '@date("yyyy")',
+  startTime: '@date("yyyy-MM-dd")',
+  endTime: '@date("yyyy-MM-dd")',
+  'planTypeLaber|1': ['普查', '抽查'],
+  appGroupName: '@cword(2,8)',
+  appGroupId: '',
+  planRange: '@county(true)',
+  'checkIndex|1': ['0', '1'],
+  'checkNum|0-100': 10,
+  'screenNum|10-999': 400,
+  'control|1': ['0', '1'],
+  'screenNum|1-99': 1,
+  'gradeName|1-10': 1,
+  screeningOptions: [
+    {
+      screeningTypeId: '1',
+      screeningTypeName: '视力',
+      itemList: [
+        {
+          screeningTypeId: '11',
+          screeningItemName: '裸眼视力',
+          selection: 1
+        },
+        {
+          screeningTypeId: '12',
+          screeningItemName: '矫正视力'
+        }
+      ]
+    },
+    {
+      screeningTypeId: '2',
+      screeningTypeName: '电脑验光',
+      itemList: [
+        {
+          screeningTypeId: '21',
+          screeningItemName: '球镜度数'
+        },
+        {
+          screeningTypeId: '22',
+          screeningItemName: '柱镜度数'
+        },
+        {
+          screeningTypeId: '23',
+          screeningItemName: '轴位'
+        }
+      ]
+    },
+    {
+      screeningTypeId: '3',
+      screeningTypeName: '其他',
+      itemList: [
+        {
+          screeningTypeId: '31',
+          screeningItemName: 'ok镜度数'
+        }
+      ]
+    }
+  ],
+  detail: {},
+  necessItem: '',
+  selecItem: '',
+  percentage: 50,
+  dashboard: {},
+  current: 1,
+  size: 15,
+  pageCount: 1
+};
+const dashboard = {
+  'schoolCount|0-10': 10,
+  'studentCount|50-100': 60,
+  'rate|0-100': 10,
+  'haveScreeningNum|0-999': 1,
+  'onScreeningNum|0-999': 1,
+  'notStartedScreeningNum|0-999': 1,
+  'haveScreeningCount|0-999': 1,
+  'notScreeningCount|0-999': 1
+};
+const levelDataList = (() => {
+  const result = [];
+  for (let index = 0; index < 20; index++) {
+    result.push({
+      id: `${index}`,
+      areaId: `${index}`,
+      areaName: '@county(true)',
+      'schoolCount|0-999': 1,
+      'studentCount|0-999': 1,
+      'rate|0-100': 1,
+      orgName: '@cword(2,8)',
+      statusLaber: '进行中',
+      orgPropertyLaber: '独立学校',
+      'prefx|1': ['小学', '初中'],
+      schoolLevelLaber: '常规'
+    });
+  }
+  return result;
+})();
 export default [
   {
-    url: '/basic-api/examine/planList',
+    url: '/basic-api/base-screen/plan/getPlanList',
     timeout: 100,
     method: 'get',
     response: ({ query }) => {
       const { page = 1, pageSize = 20 } = query;
       return resultPageSuccess(page, pageSize, list);
+    }
+  },
+  {
+    url: '/basic-api/base-screen/plan/planInfo',
+    timeout: 100,
+    method: 'get',
+    response: () => {
+      return resultSuccess(resultObj);
+    }
+  },
+  // 筛查概览
+  {
+    url: '/basic-api/base-screen/plan/getScreningRate',
+    timeout: 100,
+    method: 'get',
+    response: () => resultSuccess(dashboard)
+  },
+  // 各地筛查进度
+  {
+    url: '/basic-api/base-screen/plan/getScreningRateInfoForArea',
+    timeout: 100,
+    method: 'get',
+    response: () => resultSuccess(levelDataList)
+  },
+  {
+    url: '/basic-api/base-screen/plan/getScreningRateInfoForRegion',
+    timeout: 100,
+    method: 'get',
+    response: ({ query }) => {
+      const { page = 1, pageSize = 20 } = query;
+      return resultPageSuccess(page, pageSize, levelDataList);
+    }
+  },
+  {
+    url: '/basic-api/base-screen/plan/add',
+    timeout: 100,
+    method: 'post',
+    response: () => {
+      return resultSuccess(resultObj);
     }
   },
   {

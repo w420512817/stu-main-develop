@@ -17,12 +17,12 @@ export const createColumns = ({ orgType, handleTableClick }) => {
   const govLevel = userStore.userInfo.govLevel;
   // 权限控制
   const pers = {
-    detail: hasPermission([9007, 9055, 9103, 9151]),
-    edit: hasPermission([9008, 9056, 9104, 9152]),
-    permission: hasPermission([9010, 9058, 9106, 9154]),
-    sumedit: hasPermission([9013, 9061, 9109, 9157]),
-    completePlan: hasPermission([9012, 9060, 9108, 9156]),
-    delete: hasPermission([9014, 9062, 9110, 9158])
+    detail: 1 || hasPermission([9007, 9055, 9103, 9151]),
+    edit: 1 || hasPermission([9008, 9056, 9104, 9152]),
+    permission: 1 || hasPermission([9010, 9058, 9106, 9154]),
+    sumedit: 1 || hasPermission([9013, 9061, 9109, 9157]),
+    completePlan: 1 || hasPermission([9012, 9060, 9108, 9156]),
+    delete: 1 || hasPermission([9014, 9062, 9110, 9158])
   };
   return [
     { title: '年份', key: 'planYear', align: 'center' },
@@ -32,7 +32,7 @@ export const createColumns = ({ orgType, handleTableClick }) => {
       key: 'planMode',
       align: 'center',
       ellipsis: { tooltip: true },
-      render(row) {
+      render (row) {
         return <span>{chooseModeEnum[row.planMode]}</span>;
       }
     },
@@ -42,12 +42,12 @@ export const createColumns = ({ orgType, handleTableClick }) => {
       title: '开始日期-结束日期',
       key: 'startTime',
       align: 'center',
-      render(row) {
+      render (row) {
         return row.startTime + ' ~ ' + row.endTime;
       }
     },
     {
-      title() {
+      title () {
         return (
           <NPopover
             v-slots={{
@@ -70,7 +70,7 @@ export const createColumns = ({ orgType, handleTableClick }) => {
       },
       key: 'planStatus',
       align: 'center',
-      render(row) {
+      render (row) {
         return (
           <ColoredStatus
             icon-class="mr-1"
@@ -86,7 +86,7 @@ export const createColumns = ({ orgType, handleTableClick }) => {
       title: '进度',
       key: 'rate',
       align: 'center',
-      render(row) {
+      render (row) {
         return row.rate + '%';
       },
       hidden: orgType !== 'GOVERMENT'
@@ -103,7 +103,7 @@ export const createColumns = ({ orgType, handleTableClick }) => {
       key: 'actions',
       fixed: 'right',
       width: 150,
-      render(row) {
+      render (row) {
         const planName = row.planMode == 2 ? '任务' : '计划';
         // 区的任务模式非当前机构判断条件
         const isEditProvinceOrCityTask = row.planMode == 2 && govLevel == 3 && orgId != row.creatorOrg;
@@ -173,7 +173,7 @@ export const planDetailColumns = () => {
       title: '学生筛查进度',
       key: 'rate',
       width: 350,
-      render(row) {
+      render (row) {
         return (
           <NProgress type="line" percentage={row.rate}>
             {row.rate || 0}%
@@ -197,7 +197,7 @@ export const createPermissionColumns = ({ handleTableClick }) => {
       title: '可筛查学段',
       key: 'validPrefix',
       align: 'center',
-      render(row) {
+      render (row) {
         return prefixToStr(row.prefix);
       }
     },
@@ -205,7 +205,7 @@ export const createPermissionColumns = ({ handleTableClick }) => {
       title: '不可筛查学段',
       key: 'invalidPrefix',
       align: 'center',
-      render(row) {
+      render (row) {
         return prefixToStr(row.invalidPrefix);
       }
     },
@@ -216,7 +216,7 @@ export const createPermissionColumns = ({ handleTableClick }) => {
       key: 'actions',
       fixed: 'right',
       width: 150,
-      render(row) {
+      render (row) {
         const { renderActions } = useTableActios(
           act => {
             handleTableClick(act, toRaw(row));
@@ -271,7 +271,7 @@ export const chooseModeList = [
   { value: 2, label: '任务模式' }
 ];
 
-function prefixToStr(prefix) {
+function prefixToStr (prefix) {
   if (prefix) {
     let result = [];
     let arr = prefix.split(',');
@@ -296,7 +296,7 @@ export const areaCreateTable = (tableRef, state) => {
     {
       key: 'screeningNum',
       title: '目标数设置',
-      render(row) {
+      render (row) {
         if (row.level === 3) {
           return <div>{row.screeningNum}</div>;
         }

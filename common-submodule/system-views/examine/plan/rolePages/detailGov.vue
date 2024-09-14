@@ -118,7 +118,7 @@
                 </div>
                 <div class="w-full flex items-center justify-between">
                   <div class="w-1/4 text-center">
-                    <n-button v-auth="9009" type="primary" size="small" @click="goNextLevel(item)">详情</n-button>
+                    <n-button type="primary" size="small" @click="goNextLevel(item)">详情</n-button>
                   </div>
                   <div class="w-1/4 text-center">{{ item.schoolCount }}</div>
                   <div class="w-1/4 text-center">{{ item.studentCount }}</div>
@@ -211,7 +211,7 @@ function getDetail() {
     planId: state.planId
   })
     .then(d => {
-      let isDetailMin = govLevel < d.areaLevel;
+      let isDetailMin = govLevel < d.areaLevel || '1';
       state.nowLevel = isDetailMin ? d.areaLevel : govLevel;
       state.nowAreaId = isDetailMin ? d.areaId : areaId;
       state.originAreaId = isDetailMin ? d.areaId : areaId;
@@ -276,7 +276,7 @@ function getLevelData() {
     })
       .then(d => {
         state.pageCount = d.pages;
-        state.schoolData = d.records;
+        state.schoolData = d.list;
       })
       .finally(() => {
         state.levelLoading = false;
@@ -313,7 +313,7 @@ function goNextLevel(item) {
     })
       .then(d => {
         state.pageCount = d.pages;
-        state.schoolData = d.records;
+        state.schoolData = d.list;
       })
       .finally(() => {
         state.levelLoading = false;
@@ -331,7 +331,7 @@ function pageChange() {
   })
     .then(d => {
       state.pageCount = d.pages;
-      state.schoolData = d.records;
+      state.schoolData = d.list;
     })
     .finally(() => {
       state.levelLoading = false;
