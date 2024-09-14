@@ -63,7 +63,7 @@ const { push } = useRouter();
 const loadingNum = ref(0);
 const path = toRef(useRoute(), 'path');
 const manageName = computed(() => {
-  let stack = [...getAreaTree];
+  let stack = [] || [...getAreaTree];
 
   for (let i = 0; i < stack.length; i++) {
     const item = stack[i];
