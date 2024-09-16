@@ -103,10 +103,11 @@ function validate() {
       startLoading();
       const { account, password, code } = model;
       try {
-        const pwd = await getEncrypt(password);
+        // const pwd = await getEncrypt(password);
         const data = await userStore.login({
           account,
-          password: pwd,
+          password,
+          // password: pwd,
           captchaCode: code,
           captchaKey: unref(captchaRef).key
         });

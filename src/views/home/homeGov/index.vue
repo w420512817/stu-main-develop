@@ -587,8 +587,8 @@ async function getData() {
   formValue.screenType = screeningType.value[0].screenType;
 
   // 按类型查计划
-  const { records } = await getPlanList({ appType: formValue.screenType });
-  planList.value = records;
+  const { list } = await getPlanList({ appType: formValue.screenType });
+  planList.value = list;
   formValue.planId = planList.value[0].planId;
 
   await planChange();

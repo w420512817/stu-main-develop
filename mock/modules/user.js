@@ -8,7 +8,7 @@ export function createFakeUserList() {
       realName: 'admin',
       avatar: 'https://q1.qlogo.cn/g?b=qq&nk=190848757&s=640',
       desc: 'manager',
-      password: '123456',
+      password: 'admin123456',
       token: 'fakeToken1',
       homePath: '/dashboard/analysis',
       roles: [
@@ -21,7 +21,7 @@ export function createFakeUserList() {
     {
       userId: '2',
       account: 'test',
-      password: '123456',
+      password: 'test123456',
       realName: 'test user',
       avatar: 'https://q1.qlogo.cn/g?b=qq&nk=339449197&s=640',
       desc: 'tester',
@@ -45,7 +45,7 @@ const fakeCodeList = {
 export default [
   // mock user login
   {
-    url: '/basic-api/login',
+    url: '/basic-api/auth/biz/login',
     timeout: 200,
     method: 'post',
     response: ({ body }) => {

@@ -18,7 +18,9 @@ const { VITE_APP_KEY } = import.meta.env;
 
 export const useUserStore = defineStore('user-store', {
   state: () => ({
-    userInfo: {},
+    userInfo: {
+      orgType: 30
+    },
     customerId: ls.get(CUSTOMERID_KEY) || import.meta.env.VITE_APP_CUSTOMER_ID,
     token: getToken(),
     compareToken: '', // 用于比较的token

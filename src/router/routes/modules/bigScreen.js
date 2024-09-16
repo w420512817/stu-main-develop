@@ -1,3 +1,9 @@
+/*
+ * @Author: wjq-work\wjq wjq4416@163.com
+ * @Date: 2024-09-09 13:00:59
+ * @LastEditors: wjq-work\wjq
+ * @LastEditTime: 2024-09-16 00:48:46
+ */
 const overview = {
   path: '/bigScreen',
   name: 'BigScreen ',
@@ -12,16 +18,6 @@ const overview = {
   },
   children: [
     {
-      path: 'synthesize',
-      name: 'synthesize',
-      component: () => import('@/views/bigScreen/pages/synthesize/index.vue'),
-      meta: {
-        title: '总览',
-        keepAlive: true,
-        resourceId: 9414
-      }
-    },
-    {
       path: 'vision',
       name: 'vision',
       component: () => import('@/views/bigScreen/pages/vision/index.vue'),
@@ -29,6 +25,16 @@ const overview = {
         title: '视力筛查',
         keepAlive: true,
         resourceId: 9410
+      }
+    },
+    {
+      path: 'synthesize',
+      name: 'synthesize',
+      component: () => import('@/views/bigScreen/pages/synthesize/index.vue'),
+      meta: {
+        title: '总览',
+        keepAlive: true,
+        resourceId: 9414
       }
     },
     {

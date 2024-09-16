@@ -36,9 +36,9 @@ export function setupRouterGuard(router) {
      * 1. 从登录页跳转未找到页面 重定向为首页
      * 2. 登录状态主动跳转登录页 重定向为首页
      */
-    if ((from.name === 'Login' && to.name === NOT_FOUND_NAME) || to.name === 'Login') {
-      return next(PageEnum.BASE_HOME);
-    }
+    // if ((from.name === 'Login' && to.name === NOT_FOUND_NAME) || to.name === 'Login') {
+    //   return next(PageEnum.BASE_HOME);
+    // }
 
     const query = Object.assign({}, to.query, { customerId: userStore.customerId });
 
