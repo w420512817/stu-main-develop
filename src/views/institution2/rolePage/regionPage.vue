@@ -62,21 +62,21 @@ const columns = createColumns(handleClick);
 async function getDataSource() {
   const { page: current, pageSize: size } = pagination;
   const data = await getAreaOrgApi({ current, size, ...formValue });
-  const { records = [], total } = data;
-  records.forEach(item => {
+  const { list = [], total } = data;
+  list.forEach(item => {
     item.isLeaf = item.level >= 3 || item.orgId === userInfo.orgId;
   });
-  dataSource.value = records;
+  dataSource.value = list;
   setCount(~~total);
 }
 
 async function onLoad(row) {
   let res = await getAreaOrgApi({ manageAreaId: row.manageAreaId, current: 1, size: 999 });
-  res.records = res.records || [];
-  res.records.forEach(item => {
+  res.list = res.list || [];
+  res.list.forEach(item => {
     item.isLeaf = item.level >= 3;
   });
-  row.children = res.records;
+  row.children = res.list;
 }
 
 /**

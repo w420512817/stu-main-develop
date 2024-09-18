@@ -4,7 +4,6 @@
  * @LastEditors: wjq-work\wjq
  * @LastEditTime: 2024-09-16 23:31:27
  */
-import { integer } from 'vue-types';
 import { resultPageSuccess, resultSuccess } from '../utils';
 
 const getScreenAreaTypeRateList = (() => {

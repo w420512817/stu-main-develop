@@ -300,7 +300,11 @@
               {{ formValue.planName || state.planeResult.planName }}
             </n-descriptions-item>
             <n-descriptions-item :label="`${planName}日期`">
-              {{ `${formValue.dateValue[0]} ~ ${formValue.dateValue[1]}` || state.planeResult.startTime }}
+              {{
+                formValue?.dateValue?.length > 0
+                  ? `${formValue.dateValue[0]} ~ ${formValue.dateValue[1]}`
+                  : state.planeResult.startTime
+              }}
             </n-descriptions-item>
             <n-descriptions-item v-if="state.planMode == 1" :label="`${planName}类型`">
               {{ state.planeResult.planTypeLaber }}
