@@ -107,5 +107,11 @@ export default [
       }
       return resultSuccess(undefined, { message: 'Token has been destroyed' });
     }
+  },
+  {
+    url: '/basic-api/student-qyx/import/student/getTaskProgress',
+    timeout: 200,
+    method: 'get',
+    response: () => resultSuccess({ state: 3 })
   }
 ];

@@ -2,9 +2,8 @@
  * @Author: wjq-work\wjq wjq4416@163.com
  * @Date: 2024-09-09 13:00:59
  * @LastEditors: wjq-work\wjq
- * @LastEditTime: 2024-09-14 18:36:42
+ * @LastEditTime: 2024-09-19 00:19:10
  */
-import { method } from 'lodash-es';
 import { resultPageSuccess, resultSuccess } from '../utils';
 // import { Random } from 'mockjs';
 
@@ -138,6 +137,58 @@ const levelDataList = (() => {
   }
   return result;
 })();
+const getAppGroupList = (() => {
+  const result = [];
+  for (let index = 0; index < 4; index++) {
+    result.push({
+      appGroupId: `${index}`,
+      appGroupName: ['视力筛查', '体检筛查', '龋齿筛查', '体测筛查'][index]
+    });
+  }
+  return result;
+})();
+const schoolGradeList = (() => {
+  const result = [];
+  for (let index = 0; index < 4; index++) {
+    result.push({
+      gradeId: `${index}`,
+      'name|1': ['1年级', '2年级', '3年级', '4年级']
+    });
+  }
+  return result;
+})();
+const classList = (() => {
+  const result = [];
+  for (let index = 0; index < 6; index++) {
+    result.push({
+      classId: `${index}`,
+      className: '@cword(2,5)'
+    });
+  }
+  return result;
+})();
+const getGradeClassList = (() => {
+  const result = [];
+  for (let index = 0; index < 6; index++) {
+    result.push({
+      id: `${index}`,
+      gradeId: `${index}`,
+      gradeName: ['1年级', '2年级', '3年级', '4年级', '5年级', '6年级'][index],
+      classList
+    });
+  }
+  return result;
+})();
+const getSchoolList = (() => {
+  const result = [];
+  for (let index = 0; index < 10; index++) {
+    result.push({
+      orgId: `${index}`,
+      orgName: '@cword(2,5)'
+    });
+  }
+  return result;
+})();
 export default [
   {
     url: '/basic-api/base-screen/plan/getPlanList',
@@ -195,5 +246,98 @@ export default [
       const { page = 1, pageSize = 20 } = query;
       return resultPageSuccess(page, pageSize, list);
     }
+  },
+  {
+    url: '/basic-api/base-config/appGroup/getAppGroupList',
+    timeout: 100,
+    method: 'get',
+    response: () => resultSuccess(getAppGroupList)
+  },
+  {
+    url: '/basic-api/org/plan/schoolGradeList',
+    timeout: 100,
+    method: 'get',
+    response: () => resultSuccess(schoolGradeList)
+  },
+  {
+    url: '/basic-api/org/plan/getGradeClassList',
+    timeout: 100,
+    method: 'get',
+    response: () => resultSuccess(getGradeClassList)
+  },
+  {
+    url: '/basic-api/base-config/application/getScreeningOpitons',
+    timeout: 100,
+    method: 'get',
+    response: () =>
+      resultSuccess([
+        {
+          screeningTypeId: '1',
+          screeningTypeName: '视力',
+          itemList: [
+            {
+              screeningTypeId: '11',
+              screeningItemName: '裸眼视力'
+            },
+            {
+              screeningTypeId: '12',
+              screeningItemName: '矫正视力'
+            }
+          ]
+        },
+        {
+          screeningTypeId: '2',
+          screeningTypeName: '电脑验光',
+          itemList: [
+            {
+              screeningTypeId: '21',
+              screeningItemName: '球镜度数'
+            },
+            {
+              screeningTypeId: '22',
+              screeningItemName: '柱镜度数'
+            },
+            {
+              screeningTypeId: '23',
+              screeningItemName: '轴位'
+            }
+          ]
+        },
+        {
+          screeningTypeId: '3',
+          screeningTypeName: '其他',
+          itemList: [
+            {
+              screeningTypeId: '31',
+              screeningItemName: 'ok镜度数'
+            }
+          ]
+        }
+      ])
+  },
+  {
+    url: '/basic-api/org/basicConfig/getAreaTree',
+    timeout: 100,
+    method: 'get',
+    response: () =>
+      resultSuccess({
+        regionId: '1',
+        regionName: '@county()'
+      })
+  },
+  {
+    url: '/basic-api/org/plan/getSchoolList',
+    timeout: 100,
+    method: 'get',
+    response: ({ query }) => {
+      const { page = 1, pageSize = 20 } = query;
+      return resultPageSuccess(page, pageSize, getSchoolList);
+    }
+  },
+  {
+    url: '/basic-api/base-screen/plan/screeningNumber',
+    timeout: 100,
+    method: 'post',
+    response: () => resultSuccess('@integer(0,999)')
   }
 ];

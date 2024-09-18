@@ -58,7 +58,7 @@
       </n-grid>
     </n-form>
     <n-space mb-4>
-      <n-button type="primary" @click="openChooseModal">新增筛查</n-button>
+      <n-button type="primary" @click="handleChoose">新增筛查</n-button>
     </n-space>
 
     <!-- :scroll-x="1500" -->
@@ -181,7 +181,7 @@ function handleSearch() {
 }
 // id 1：计划模式 2： 自动模式
 function handleChoose(id) {
-  go({ path: '/examine/add-plan', query: { appType, planMode: id } });
+  go({ path: '/examine/add-plan', query: { appType, planMode: 1 || id } });
 }
 
 function handleTableClick(key, row = {}) {

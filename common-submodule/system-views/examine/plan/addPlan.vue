@@ -402,50 +402,7 @@ let state = reactive({
   appsList: [],
   allGradeList: [],
   areaList: [], // 计划范围
-  screenItems: [
-    {
-      screeningTypeId: '1',
-      screeningTypeName: '视力',
-      itemList: [
-        {
-          screeningTypeId: '11',
-          screeningItemName: '裸眼视力'
-        },
-        {
-          screeningTypeId: '12',
-          screeningItemName: '矫正视力'
-        }
-      ]
-    },
-    {
-      screeningTypeId: '2',
-      screeningTypeName: '电脑验光',
-      itemList: [
-        {
-          screeningTypeId: '21',
-          screeningItemName: '球镜度数'
-        },
-        {
-          screeningTypeId: '22',
-          screeningItemName: '柱镜度数'
-        },
-        {
-          screeningTypeId: '23',
-          screeningItemName: '轴位'
-        }
-      ]
-    },
-    {
-      screeningTypeId: '3',
-      screeningTypeName: '其他',
-      itemList: [
-        {
-          screeningTypeId: '31',
-          screeningItemName: 'ok镜度数'
-        }
-      ]
-    }
-  ],
+  screenItems: [],
   schoolChoice: [{ ...schoolChoiceOrigin }],
   planMode: 0,
   areaRangeChecked: '', // 计划范围所有选中的值
@@ -948,7 +905,7 @@ function schoolSearch2(query, i) {
     planRange: formValue.areaRange.join(',')
   })
     .then(d => {
-      state.schoolChoice[i].allOrg = d.records;
+      state.schoolChoice[i].allOrg = d.list;
     })
     .finally(() => {
       state.schoolLoading = false;
