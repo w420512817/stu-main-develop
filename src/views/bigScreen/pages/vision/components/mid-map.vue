@@ -34,7 +34,7 @@ import { useECharts } from '@common/hooks/useECharts';
 import { getMyopiaRate } from '@/api/bigScreen/vision';
 import { areaTypeMap, numToPercent } from '@/views/bigScreen/data/index.data.js';
 import { useUserStore } from '@/store/modules/user';
-import { defHttp } from '@common/utils/http';
+import jsonmap from '../map.json';
 
 const userStore = useUserStore();
 const {
@@ -139,11 +139,12 @@ let cacheFeatures = [];
 
 // 获取地图边界信息
 async function getGeoJson(id) {
-  // return defHttp.get({ url: `/map-res/json/${id}.json` });
-  return axios({
-    url: `//cdn.qdsgvision.com/map-res/json/${id}.json`,
-    method: 'get'
-  });
+  console.log('jsonmap: ', jsonmap);
+  return jsonmap;
+  // return axios({
+  //   url: `//cdn.qdsgvision.com/map-res/json/${id}.json`,
+  //   method: 'get'
+  // });
 }
 
 // 保存当前地图区块的id和name

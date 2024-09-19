@@ -2,10 +2,9 @@
  * @Author: wjq-work\wjq wjq4416@163.com
  * @Date: 2024-09-09 13:00:59
  * @LastEditors: wjq-work\wjq
- * @LastEditTime: 2024-09-19 14:25:54
+ * @LastEditTime: 2024-09-19 20:06:12
  */
 import { resultPageSuccess, resultSuccess } from '../utils';
-import mapjson from '../map.json';
 const basic = process.env.NODE_ENV === 'development' ? 'data-center-qyx' : 'data-center';
 
 const planListData = (() => {
@@ -124,12 +123,6 @@ const hyperopiaRateData = (() => {
 })();
 
 export default [
-  {
-    url: `/basic-api/map-res/json/610000.json`,
-    timeout: 100,
-    method: 'get',
-    response: () => resultSuccess(mapjson)
-  },
   // {
   //   url: `/basic-api/base-screen/plan/getPlanList`,
   //   timeout: 100,
