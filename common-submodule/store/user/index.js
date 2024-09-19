@@ -19,8 +19,27 @@ const { VITE_APP_KEY } = import.meta.env;
 export const useUserStore = defineStore('user-store', {
   state: () => ({
     userInfo: {
-      areaId: 610000,
-      orgType: 30
+      // areaId: 610000,
+      // orgType: 30,
+      account: 'shengceshi1',
+      areaId: '610000',
+      avatar: null,
+      birth: '2000-07-28',
+      govLevel: 1,
+      id: '1280675499532032',
+      idCard: 'MzEwMTEyMjAwMDA3MjgwMzA5',
+      loginTimes: 0,
+      manageAreaId: '610000',
+      manageAreaName: '陕西省',
+      orgId: '1280674354847488',
+      orgName: '陕西教育局',
+      orgProperty: 8,
+      orgType: 30,
+      phone: 'MTU4OTY4NTU5OTQ=',
+      realName: '陕西教育局',
+      regionList: [],
+      roleName: null,
+      sex: '女'
     },
     customerId: ls.get(CUSTOMERID_KEY) || import.meta.env.VITE_APP_CUSTOMER_ID,
     token: getToken(),

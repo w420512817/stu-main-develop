@@ -81,6 +81,33 @@ export default [
     }
   },
   {
+    url: '/basic-api/auth/biz/getUserInfo',
+    timeout: 200,
+    method: 'get',
+    response: () =>
+      resultSuccess({
+        account: 'shengceshi1',
+        areaId: '610000',
+        avatar: null,
+        birth: '2000-07-28',
+        govLevel: 1,
+        id: '1280675499532032',
+        idCard: 'MzEwMTEyMjAwMDA3MjgwMzA5',
+        loginTimes: 0,
+        manageAreaId: '610000',
+        manageAreaName: '陕西省',
+        orgId: '1280674354847488',
+        orgName: '陕西教育局',
+        orgProperty: 8,
+        orgType: 30,
+        phone: 'MTU4OTY4NTU5OTQ=',
+        realName: '陕西教育局',
+        regionList: [],
+        roleName: null,
+        sex: '女'
+      })
+  },
+  {
     url: '/basic-api/getPermCode',
     timeout: 200,
     method: 'get',
