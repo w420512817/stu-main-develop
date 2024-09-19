@@ -29,7 +29,7 @@
       </n-input>
     </n-form-item>
 
-    <n-form-item path="code">
+    <!-- <n-form-item path="code">
       <n-space align="center" justify="space-between" inline>
         <n-input-number v-model:value="model.code" :show-button="false" placeholder="请输入验证码">
           <template #prefix>
@@ -38,7 +38,7 @@
         </n-input-number>
         <img :src="captchaRef.image" alt="点击刷新" @click="getCode" />
       </n-space>
-    </n-form-item>
+    </n-form-item> -->
 
     <n-space :vertical="true" :size="24">
       <div class="flex-y-center justify-between">
@@ -63,18 +63,16 @@ import useLoading from '@common/hooks/useLoading';
 import { useModal } from '@common/components/custom/Modal';
 import { useUserStore } from '@/store';
 import { getCaptchaCode } from '@common/api/system/user';
-import useEncrypt from '@common/hooks/business/useRSAEncrypt';
 import { useThrottleFn } from '@vueuse/core';
 import ResetPwdModal from './ResetPwdModal.vue';
 import UpdatePasswd from './UpdatePasswd.vue';
 import { KEEP_LOADING_KEY } from '@common/enum/cacheEnum';
-import { getUserInfo, getPublicKey } from '@common/api/system/user';
+import { getUserInfo } from '@common/api/system/user';
 import { setToken } from '@common/utils/auth';
 
 const [registerPwd, { openModal: openModalPwd }] = useModal();
 const [registerReset, { openModal: openModalReset }] = useModal();
 const { loading, startLoading, endLoading } = useLoading();
-const { getEncrypt } = useEncrypt(getPublicKey);
 
 // consonsle
 const formRef = ref(null);

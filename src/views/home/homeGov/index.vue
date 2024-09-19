@@ -441,7 +441,11 @@ async function setRightOpts(list) {
       bottom: '10%',
       left: '15%'
     },
-    tooltip: { show: true, trigger: 'axis', valueFormatter: v => (tenThousand.value ? multiply(v, 10000) : v) + ' 人' },
+    tooltip: {
+      show: true,
+      trigger: 'axis',
+      valueFormatter: v => (tenThousand.value ? multiply(v, 100000) / 10 : v) + ' 人'
+    },
     legend: { show: false },
     yAxis: {
       axisLine: { show: false },

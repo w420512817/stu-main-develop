@@ -20,6 +20,18 @@ export function resultPageSuccess(page, pageSize, list, { message = 'ok' } = {})
   };
 }
 
+export function resultPageSuccess2(page, pageSize, list, { message = 'ok' } = {}) {
+  const pageData = pagination(page, pageSize, list);
+
+  return {
+    ...resultSuccess({
+      records: pageData,
+      total: list.length
+    }),
+    message
+  };
+}
+
 export function resultError(message = 'Request failed', { code = -1, data = null } = {}) {
   return {
     code,

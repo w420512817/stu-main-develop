@@ -55,7 +55,7 @@ provide('params', params);
 
 async function gPlanList(init) {
   let res = await getPlanList({ current: 1, size: 50, planName: null, appType: params.screeningType });
-  planList.value = unionBy(res?.records || [], 'planId');
+  planList.value = unionBy(res?.list || [], 'planId');
   if (init) {
     params.planId = planList.value[0]?.planId || null;
     // params.planId = '1054304473882368';

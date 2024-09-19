@@ -1,7 +1,7 @@
 const { VITE_APP_INDEX_URL = '' } = import.meta.env;
 export const PageEnum = {
   // basic login path
-  BASE_LOGIN: import.meta.env.VITE_AUTH_CENTER_URL,
+  BASE_LOGIN: '/login',
   // basic home path
   BASE_HOME: VITE_APP_INDEX_URL || '/dashboard/overview',
   // error page path

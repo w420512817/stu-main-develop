@@ -18,11 +18,11 @@ const Api = {
   clickCount: `${basic1}/homepage/clickCount` // 菜单埋点，非政府账号下的首页右侧，常用功能
 };
 
-export function noticeNum(params) {
-  return defHttp.get({
-    url: Api.noticeNum,
-    params
-  });
+export async function noticeNum() {
+  // return defHttp.get({
+  //   url: Api.noticeNum,
+  //   params
+  // });
 }
 
 export function smsSend(params, mode = 'modal') {

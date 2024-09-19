@@ -9,8 +9,6 @@
       <div mt-4>
         <login-form />
       </div>
-
-      <div text-center mt-4 class="color-[#777]">客服电话：{{ SERVICE_TEL }}</div>
     </n-card>
   </div>
 </template>
@@ -18,7 +16,6 @@
 <script setup>
 import LoginForm from './components/LoginForm.vue';
 import { getAppEnv } from '@common/utils/common/env';
-import { SERVICE_TEL } from '@common/enum/common';
 
 const { VITE_APP_TITLE: title } = getAppEnv();
 </script>

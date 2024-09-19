@@ -32,7 +32,7 @@
       :columns="columnsRef"
       :data="dataList"
       :bordered="false"
-      max-height="200px"
+      min-height="200px"
     />
   </div>
 </template>
@@ -62,7 +62,7 @@ const columnsRef = ref(columns);
 
 async function gPlanList(init) {
   let res = await getPlanList({ current: 1, size: 50, planName: null, appType: params.screeningType });
-  planList.value = unionBy(res?.records || [], 'planId');
+  planList.value = unionBy(res?.list || [], 'planId');
   if (init) {
     params.planId = planList.value[0]?.planId || null;
   }

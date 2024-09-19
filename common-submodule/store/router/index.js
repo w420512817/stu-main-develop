@@ -40,24 +40,24 @@ export const useRouteStore = defineStore('route-store', {
     },
     generateRoutes() {
       // TODO: 临时放开路由权限控制  start 注意放开上面脚本引入
-      // const userStore = useUserStore();
-      // let routes = [];
+      const userStore = useUserStore();
+      let routes = [];
 
-      // const routeFilter = route => {
-      //   const resourceId = route.meta?.resourceId;
-      //   if (Array.isArray(resourceId)) {
-      //     if (!resourceId.length) return true;
-      //     return userStore.permissions.some(id => resourceId.includes(id));
-      //   }
-      //   if (!resourceId) return true;
-      //   return userStore.permissions.includes(resourceId);
-      // };
+      const routeFilter = route => {
+        const resourceId = route.meta?.resourceId;
+        if (Array.isArray(resourceId)) {
+          if (!resourceId.length) return true;
+          return userStore.permissions.some(id => resourceId.includes(id));
+        }
+        if (!resourceId) return true;
+        return userStore.permissions.includes(resourceId);
+      };
 
-      // // 路由权限过滤
-      // routes = filter(asyncRoutes, routeFilter);
-      // routes = routes.filter(routeFilter);
+      // 路由权限过滤
+      routes = filter(asyncRoutes, routeFilter);
+      routes = routes.filter(routeFilter);
 
-      let routes = asyncRoutes;
+      // let routes = asyncRoutes;
       // TODO: 临时放开路由权限控制  end
 
       // 从路由获取菜单数据
