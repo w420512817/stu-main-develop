@@ -2,7 +2,7 @@
  * @Author: wjq-work\wjq wjq4416@163.com
  * @Date: 2024-09-12 14:47:42
  * @LastEditors: wjq-work\wjq
- * @LastEditTime: 2024-09-14 11:33:54
+ * @LastEditTime: 2024-09-19 14:35:05
  */
 const reports = {
   path: '/reports',
@@ -20,28 +20,28 @@ const reports = {
       name: 'reportCity',
       component: () => import('@/views/report/index.vue'),
       meta: {
-        title: '市报告',
-        keepAlive: true
-      }
-    },
-    {
-      path: 'report-district',
-      name: 'reportDistrict',
-      component: () => import('@/views/report/index.vue'),
-      meta: {
-        title: '区报告',
-        keepAlive: true
-      }
-    },
-    {
-      path: 'report-school',
-      name: 'reportSchool',
-      component: () => import('@/views/report/index.vue'),
-      meta: {
-        title: '学校报告',
+        title: '报告选择',
         keepAlive: true
       }
     }
+    // {
+    //   path: 'report-district',
+    //   name: 'reportDistrict',
+    //   component: () => import('@/views/report/index.vue'),
+    //   meta: {
+    //     title: '区报告',
+    //     keepAlive: true
+    //   }
+    // },
+    // {
+    //   path: 'report-school',
+    //   name: 'reportSchool',
+    //   component: () => import('@/views/report/index.vue'),
+    //   meta: {
+    //     title: '学校报告',
+    //     keepAlive: true
+    //   }
+    // }
   ]
 };
 export default reports;

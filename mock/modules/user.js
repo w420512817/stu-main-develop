@@ -1,5 +1,7 @@
 import { resultError, resultSuccess, getRequestToken } from '../utils';
 
+const basic = process.env.NODE_ENV === 'development' ? 'student-qyx' : 'student';
+
 export function createFakeUserList() {
   return [
     {
@@ -109,7 +111,7 @@ export default [
     }
   },
   {
-    url: '/basic-api/student-qyx/import/student/getTaskProgress',
+    url: `/basic-api/${basic}/import/student/getTaskProgress`,
     timeout: 200,
     method: 'get',
     response: () => resultSuccess({ state: 3 })

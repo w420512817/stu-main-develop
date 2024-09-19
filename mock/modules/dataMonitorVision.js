@@ -2,7 +2,7 @@
  * @Author: wjq-work\wjq wjq4416@163.com
  * @Date: 2024-09-09 13:00:59
  * @LastEditors: wjq-work\wjq
- * @LastEditTime: 2024-09-19 14:15:50
+ * @LastEditTime: 2024-09-19 14:25:54
  */
 import { resultPageSuccess, resultSuccess } from '../utils';
 import mapjson from '../map.json';
@@ -21,10 +21,10 @@ const planListData = (() => {
 })();
 const batchContrastData = (() => {
   const result = [];
-  for (let index = 0; index < 5; index++) {
+  for (let index = 0; index < 10; index++) {
     result.push({
-      'completionCount|0-999': 100,
-      'planName|1': [`20@integer(10,20)第一次上报`, `20@integer(10,20)第二次上报`],
+      'completionCount|0-9999': 1000,
+      'planName|1': [`20@integer(10,20)第一次上报`, `20@integer(10,20)第二次上报`, '陕西省视力筛查计划'],
       time: '@datetime'
     });
   }
