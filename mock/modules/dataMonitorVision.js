@@ -2,9 +2,11 @@
  * @Author: wjq-work\wjq wjq4416@163.com
  * @Date: 2024-09-09 13:00:59
  * @LastEditors: wjq-work\wjq
- * @LastEditTime: 2024-09-14 18:17:10
+ * @LastEditTime: 2024-09-19 14:15:50
  */
 import { resultPageSuccess, resultSuccess } from '../utils';
+import mapjson from '../map.json';
+const basic = process.env.NODE_ENV === 'development' ? 'data-center-qyx' : 'data-center';
 
 const planListData = (() => {
   const result = [];
@@ -123,13 +125,19 @@ const hyperopiaRateData = (() => {
 
 export default [
   {
-    url: '/basic-api/data-center-qyx/plan/getPlanList',
+    url: `/basic-api/map-res/json/610000.json`,
     timeout: 100,
     method: 'get',
-    response: () => resultSuccess(planListData)
+    response: () => resultSuccess(mapjson)
   },
+  // {
+  //   url: `/basic-api/base-screen/plan/getPlanList`,
+  //   timeout: 100,
+  //   method: 'get',
+  //   response: () => resultSuccess(planListData)
+  // },
   {
-    url: '/basic-api/data-center-qyx/screenVision/overview',
+    url: `/basic-api/${basic}/screenVision/overview`,
     timeout: 100,
     method: 'get',
     response: () =>
@@ -140,25 +148,25 @@ export default [
       })
   },
   {
-    url: '/basic-api/data-center-qyx/screenVision/batchContrast',
+    url: `/basic-api/${basic}/screenVision/batchContrast`,
     timeout: 100,
     method: 'get',
     response: () => resultSuccess(batchContrastData)
   },
   {
-    url: '/basic-api/data-center-qyx/screenVision/prefixOverview',
+    url: `/basic-api/${basic}/screenVision/prefixOverview`,
     timeout: 100,
     method: 'get',
     response: () => resultSuccess(prefixOverviewData)
   },
   {
-    url: '/basic-api/data-center-qyx/screenVision/myopiaRate',
+    url: `/basic-api/${basic}/screenVision/myopiaRate`,
     timeout: 100,
     method: 'get',
     response: () => resultSuccess(myopiaRateData)
   },
   {
-    url: '/basic-api/data-center-qyx/screenVision/currentReport',
+    url: `/basic-api/${basic}/screenVision/currentReport`,
     timeout: 100,
     method: 'get',
     response: () =>
@@ -172,25 +180,25 @@ export default [
       })
   },
   {
-    url: '/basic-api/data-center-qyx/screenVision/prefixRate',
+    url: `/basic-api/${basic}/screenVision/prefixRate`,
     timeout: 100,
     method: 'get',
     response: () => resultSuccess(prefixRateData)
   },
   {
-    url: '/basic-api/data-center-qyx/screenVision/myopiaLevel',
+    url: `/basic-api/${basic}/screenVision/myopiaLevel`,
     timeout: 100,
     method: 'get',
     response: () => resultSuccess(myopiaLevelData)
   },
   {
-    url: '/basic-api/data-center-qyx/screenVision/prefixlevel',
+    url: `/basic-api/${basic}/screenVision/prefixlevel`,
     timeout: 100,
     method: 'get',
     response: () => resultSuccess(prefixlevelData)
   },
   {
-    url: '/basic-api/data-center-qyx/screenVision/hyperopiaRate',
+    url: `/basic-api/${basic}/screenVision/hyperopiaRate`,
     timeout: 100,
     method: 'get',
     response: () => resultSuccess(hyperopiaRateData)

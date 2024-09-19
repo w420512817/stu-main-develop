@@ -34,6 +34,7 @@ import { useECharts } from '@common/hooks/useECharts';
 import { getMyopiaRate } from '@/api/bigScreen/vision';
 import { areaTypeMap, numToPercent } from '@/views/bigScreen/data/index.data.js';
 import { useUserStore } from '@/store/modules/user';
+import { defHttp } from '@common/utils/http';
 
 const userStore = useUserStore();
 const {
@@ -138,6 +139,7 @@ let cacheFeatures = [];
 
 // 获取地图边界信息
 async function getGeoJson(id) {
+  // return defHttp.get({ url: `/map-res/json/${id}.json` });
   return axios({
     url: `//cdn.qdsgvision.com/map-res/json/${id}.json`,
     method: 'get'
@@ -179,9 +181,12 @@ async function getAreaMapData() {
 const initMap = async () => {
   const geoJson = await getGeoJson(params.id);
 
-  saveFeatures(geoJson.data.features);
+  console.log('geoJson: ', geoJson);
 
-  echarts.registerMap(params.id, geoJson.data);
+  saveFeatures(geoJson.features);
+  console.log('geoJson.features: ', geoJson.features);
+
+  echarts.registerMap(params.id, geoJson);
   opts.series[0].map = params.id;
 
   mapChart.value = getInstance();
@@ -197,9 +202,9 @@ async function goBack() {
 
   // 重新渲染
   const geoJson = await getGeoJson(lastAreaId.value);
-  saveFeatures(geoJson.data.features);
+  saveFeatures(geoJson.features);
   await getAreaMapData();
-  echarts.registerMap(lastAreaId.value, geoJson.data);
+  echarts.registerMap(lastAreaId.value, geoJson);
   opts.series[0].map = lastAreaId.value;
   setOptions(opts);
 }
@@ -218,12 +223,12 @@ const mapClick = async obj => {
 
   // 重新渲染
   const geoJson = await getGeoJson(obj.data.id);
-  saveFeatures(geoJson.data.features);
+  saveFeatures(geoJson.features);
 
   await getAreaMapData();
 
   // 渲染
-  echarts.registerMap(obj.data.id, geoJson.data);
+  echarts.registerMap(obj.data.id, geoJson);
   opts.series[0].map = obj.data.id;
   setOptions(opts);
 };
