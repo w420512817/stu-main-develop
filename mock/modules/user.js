@@ -1,6 +1,6 @@
 import { resultError, resultSuccess, getRequestToken } from '../utils';
 
-const basic = process.env.NODE_ENV === 'development' ? 'student-qyx' : 'student';
+const basic = 'student';
 
 export function createFakeUserList() {
   return [

@@ -41,11 +41,11 @@ export const transform = {
       // }, 1000);
     }
 
-    if (options.errorMessageMode === 'modal') {
-      window.$dialog?.error({ title: '错误提示', content: data.message, positiveText: '确认' });
-    } else if (options.errorMessageMode === 'message') {
-      window.$message?.error(data.message);
-    }
+    // if (options.errorMessageMode === 'modal') {
+    //   window.$dialog?.error({ title: '错误提示', content: data.message, positiveText: '确认' });
+    // } else if (options.errorMessageMode === 'message') {
+    //   window.$message?.error(data.message);
+    // }
 
     throw new Error(data.message);
   },
