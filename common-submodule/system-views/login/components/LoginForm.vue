@@ -147,7 +147,7 @@ const getCode = useThrottleFn(() => {
   });
 }, 800);
 
-getCode();
+// getCode();
 </script>
 <style scoped>
 .prefix-icon {
