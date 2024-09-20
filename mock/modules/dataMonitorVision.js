@@ -2,10 +2,10 @@
  * @Author: wjq-work\wjq wjq4416@163.com
  * @Date: 2024-09-09 13:00:59
  * @LastEditors: wjq-work\wjq
- * @LastEditTime: 2024-09-20 15:44:56
+ * @LastEditTime: 2024-09-20 17:15:51
  */
 import { resultPageSuccess, resultSuccess } from '../utils';
-const basic = process.env.NODE_ENV === 'development' ? 'data-center-qyx' : 'data-center';
+const basic = process.env.NODE_ENV === 'development' ? 'data-center' : 'data-center';
 
 const planListData = (() => {
   const result = [];

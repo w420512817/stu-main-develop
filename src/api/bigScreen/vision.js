@@ -1,7 +1,13 @@
+/*
+ * @Author: wjq-work\wjq wjq4416@163.com
+ * @Date: 2024-09-09 13:00:59
+ * @LastEditors: wjq-work\wjq
+ * @LastEditTime: 2024-09-20 17:15:32
+ */
 import { defHttp } from '@common/utils/http';
 import { isDevMode } from '@common/utils/common/env';
 
-const basic = isDevMode() ? '/data-center-qyx' : '/data-center';
+const basic = isDevMode() ? '/data-center' : '/data-center';
 
 const Api = {
   screenVisionOverview: `${basic}/screenVision/overview`, // 全省/全市筛查数据总览（左上）

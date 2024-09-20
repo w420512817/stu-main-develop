@@ -65,7 +65,7 @@ const opts = {
   name: 'ditu',
   type: 'map',
   roam: true,
-  map: '浙江省',
+  map: '安徽省',
   label: { show: true },
   tooltip: {
     show: true,
