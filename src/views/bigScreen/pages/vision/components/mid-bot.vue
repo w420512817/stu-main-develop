@@ -1,5 +1,5 @@
 <template>
-  <SubTitle is-large :sub-title="'实时上报数据展示'" />
+  <SubTitle is-large :sub-title="'实时筛查数据展示'" />
   <div class="flex h-40px">
     <div class="flex items-center ml-0.5vw">
       <span class="text-0.8vw tit text-[#B7D5F0]">累计筛查人数</span>
@@ -33,7 +33,7 @@ const loadingFn = inject('loadingFn');
 const state = reactive({
   columns: [
     { key: 'areaName', title: '省市名称', width: '12.5%' },
-    { key: 'completionRate', title: '上报率', width: '12.5%' },
+    { key: 'completionRate', title: '筛查率', width: '12.5%' },
     { key: 'myopiaRate', title: '近视情况', width: '12.5%' },
     { key: 'boyMyopiaRate', title: '男生', width: '12.5%' },
     { key: 'girlMyopiaRate', title: '女生', width: '12.5%' },

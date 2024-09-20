@@ -1,5 +1,5 @@
 <template>
-  <SubTitle :sub-title="`${areaTitle}各学段上报数据`" />
+  <SubTitle :sub-title="`${areaTitle}各学段筛查数据`" />
   <div class="expand-all">
     <div v-for="item in dataList" :key="item.prefix" :class="['absolute', item.class]">
       <div class="content">
@@ -8,11 +8,11 @@
           <span :class="['completeRate', item.color]">{{ item.completeRate }}%</span>
         </div>
         <div class="content-item">
-          <span>应上报数</span>
+          <span>应筛查数</span>
           <span :class="['completeRate', item.color]">{{ item.stdCount }}</span>
         </div>
         <div class="content-item">
-          <span>已上报数</span>
+          <span>已筛查数</span>
           <span :class="['completeRate', item.color]">{{ item.completeCount }}</span>
         </div>
       </div>
@@ -45,7 +45,7 @@ const { setOptions } = useECharts(chart);
 let dataList = ref([
   {
     prefix: 2,
-    fullName: '小学上报率',
+    fullName: '小学筛查率',
     color: 'yellow_text',
     class: 'left_top',
     startAngle: -220,
@@ -55,7 +55,7 @@ let dataList = ref([
   },
   {
     prefix: 3,
-    fullName: '初中上报率',
+    fullName: '初中筛查率',
     color: 'blue_text',
     class: 'right_top',
     startAngle: 50,
@@ -65,7 +65,7 @@ let dataList = ref([
   },
   {
     prefix: 4,
-    fullName: '高中上报率',
+    fullName: '高中筛查率',
     color: 'cyan_text',
     class: 'left_bot',
     startAngle: -150,
@@ -75,7 +75,7 @@ let dataList = ref([
   },
   {
     prefix: 1,
-    fullName: '幼儿园上报率',
+    fullName: '幼儿园筛查率',
     color: 'green_text',
     class: 'right_bot',
     startAngle: -50,

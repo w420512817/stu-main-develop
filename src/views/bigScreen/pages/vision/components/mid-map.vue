@@ -10,7 +10,7 @@
     </div>
 
     <div class="h-full p-t-8%">
-      <div class="subtitle-colored">{{ areaTitle }}本次上报情况</div>
+      <div class="subtitle-colored">{{ areaTitle }}本次筛查情况</div>
       <div class="subtitle flex items-center m-y-4px p-l-5%">
         <span class="w-50%">{{ namePrefix }}名称</span>
         <span class="w-50%">近视情况</span>
@@ -172,6 +172,7 @@ async function getAreaMapData() {
       item.myopiaRate = temp?.myopiaRate || 0;
     });
   }
+  res.sort((a, b) => b.myopiaRate - a.myopiaRate);
   currentCodeCache.value = res || [];
 
   opts.series[0].data = cacheFeatures;

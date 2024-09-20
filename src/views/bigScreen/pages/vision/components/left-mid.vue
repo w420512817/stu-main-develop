@@ -1,5 +1,5 @@
 <template>
-  <SubTitle :sub-title="`${areaTitle}上报批次对比图`" />
+  <SubTitle :sub-title="`${areaTitle}筛查批次对比图`" />
   <div ref="chart" class="expand-all"></div>
 </template>
 

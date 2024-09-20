@@ -13,24 +13,24 @@
       <img v-else src="@/assets/image/bigScreen/arrow-bottom.png" alt="" class="w-full" />
     </template>
   </n-select>
-  <SubTitle :sub-title="`${areaTitle}上报数据总览`" />
+  <SubTitle :sub-title="`${areaTitle}筛查数据总览`" />
   <div class="expand-all flex">
     <div class="h-full w-40% flex justify-center items-center relative">
       <div ref="ball" class="wh-full"></div>
       <div class="w-14.5vh h-14.5vh absolute circle1">
         <div class="w-95% h-95% absolute circle2"></div>
       </div>
-      <div class="chart-title">总上报率</div>
+      <div class="chart-title">总筛查率</div>
     </div>
     <div class="h-full w-60% flex-col gap-y-0.5vh">
       <div>
-        <div class="subtitle-colored">上报情况</div>
+        <div class="subtitle-colored">筛查情况</div>
         <div class="flex">
           <div class="flex-col items-center">
             <div class="subtitle-num m-b-4px">
               <n-number-animation :to="resObj?.stdCount || 0">{{ resObj?.stdCount || 0 }}</n-number-animation>
             </div>
-            <div class="subtitle-text">应上报人数</div>
+            <div class="subtitle-text">应筛查人数</div>
           </div>
           <div class="m-l-4vw flex-col items-center">
             <div class="subtitle-num m-b-4px">
@@ -38,7 +38,7 @@
                 {{ resObj?.completionCount || 0 }}
               </n-number-animation>
             </div>
-            <div class="subtitle-text">实际上报人数</div>
+            <div class="subtitle-text">实际筛查人数</div>
           </div>
         </div>
       </div>
