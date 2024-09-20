@@ -49,7 +49,7 @@ const { userInfo } = userStore;
 const params = reactive({
   planId: '',
   level: userInfo.govLevel,
-  id: userInfo.areaId
+  id: '340000' || userInfo.areaId
 });
 
 function paramsChange(key, value) {

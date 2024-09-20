@@ -37,8 +37,8 @@ const prefixName = computed(() => {
   return namePrefixMap[params.level];
 });
 const navList1 = computed(() => [
-  { name: `${prefixName.value}近视情况`, type: '1' },
-  { name: `不同学段近视情况`, type: '2' }
+  { name: `${prefixName.value}近视率`, type: '1' },
+  { name: `不同学段近视率`, type: '2' }
 ]);
 
 const navList2 = computed(() => [

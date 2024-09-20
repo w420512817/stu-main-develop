@@ -34,7 +34,7 @@ import { useECharts } from '@common/hooks/useECharts';
 import { getMyopiaRate } from '@/api/bigScreen/vision';
 import { areaTypeMap, numToPercent } from '@/views/bigScreen/data/index.data.js';
 import { useUserStore } from '@/store/modules/user';
-import jsonmap from '../map.json';
+import jsonmap from '../mapah.json';
 
 const userStore = useUserStore();
 const {
@@ -139,10 +139,9 @@ let cacheFeatures = [];
 
 // 获取地图边界信息
 async function getGeoJson(id) {
-  console.log('jsonmap: ', jsonmap);
-  return jsonmap;
+  return { data: jsonmap };
   // return axios({
-  //   url: `//cdn.qdsgvision.com/map-res/json/${id}.json`,
+  //   url: `https://geo.datav.aliyun.com/areas_v3/bound/${id}_full.json`,
   //   method: 'get'
   // });
 }
@@ -151,7 +150,7 @@ async function getGeoJson(id) {
 function saveFeatures(list) {
   cacheFeatures = list.map(item => {
     return {
-      id: item.id,
+      id: item.properties.adcode.toString(),
       name: item.properties.name
     };
   });
@@ -181,13 +180,9 @@ async function getAreaMapData() {
 // 地图初始化，只在挂载后触发一次
 const initMap = async () => {
   const geoJson = await getGeoJson(params.id);
+  saveFeatures(geoJson.data.features);
 
-  console.log('geoJson: ', geoJson);
-
-  saveFeatures(geoJson.features);
-  console.log('geoJson.features: ', geoJson.features);
-
-  echarts.registerMap(params.id, geoJson);
+  echarts.registerMap(params.id, geoJson.data);
   opts.series[0].map = params.id;
 
   mapChart.value = getInstance();
@@ -203,17 +198,15 @@ async function goBack() {
 
   // 重新渲染
   const geoJson = await getGeoJson(lastAreaId.value);
-  saveFeatures(geoJson.features);
+  saveFeatures(geoJson.data.features);
   await getAreaMapData();
-  echarts.registerMap(lastAreaId.value, geoJson);
+  echarts.registerMap(lastAreaId.value, geoJson.data);
   opts.series[0].map = lastAreaId.value;
   setOptions(opts);
 }
 
 // 区块点击事件，下钻
 const mapClick = async obj => {
-  // console.log('obj', obj);
-
   // 区级不再下钻
   if (params.level === 3) return;
 
@@ -224,12 +217,12 @@ const mapClick = async obj => {
 
   // 重新渲染
   const geoJson = await getGeoJson(obj.data.id);
-  saveFeatures(geoJson.features);
+  saveFeatures(geoJson.data.features);
 
   await getAreaMapData();
 
   // 渲染
-  echarts.registerMap(obj.data.id, geoJson);
+  echarts.registerMap(obj.data.id, geoJson.data);
   opts.series[0].map = obj.data.id;
   setOptions(opts);
 };

@@ -410,13 +410,13 @@ function handleUpdateValue(val) {
 }
 
 async function getPlanList() {
-  const { list } = await planList({ appType: screenTypeMap['视力'] });
+  const { records } = await planList({ appType: screenTypeMap['视力'] });
 
   // console.log('planList', records);
 
-  if (!list.length) return;
-  selectOptions.value = list;
-  currentBatch.value = list[0].planId;
+  if (!records.length) return;
+  selectOptions.value = records;
+  currentBatch.value = records[0].planId;
   paramsChange('planId', currentBatch.value);
 }
 
