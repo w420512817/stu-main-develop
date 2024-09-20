@@ -7,7 +7,8 @@ const dashboard = {
     title: '健康系统',
     icon: 'icon-park-outline:workbench',
     hideChildrenInMenu: true,
-    orderNo: 1
+    orderNo: 1,
+    hideMenu: true
     // resourceId: 9002
   },
   children: [

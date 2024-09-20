@@ -3,7 +3,7 @@ export const PageEnum = {
   // basic login path
   BASE_LOGIN: '/login',
   // basic home path
-  BASE_HOME: VITE_APP_INDEX_URL || '/dashboard/overview',
+  BASE_HOME: VITE_APP_INDEX_URL || '/homepage/homeIndex',
   // error page path
   ERROR_PAGE: '/exception',
   // not found page name

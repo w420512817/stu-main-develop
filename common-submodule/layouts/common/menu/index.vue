@@ -72,6 +72,8 @@ const activeKey = computed(() =>
 );
 
 function handleUpdateMenu(_key, route) {
+  console.log(route.path);
+
   go(route.path);
   if (getAPPType() === 'MAIN') {
     // 只有主应用才需要采集点击数据
