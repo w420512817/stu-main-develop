@@ -12,26 +12,16 @@
         <div class="head">
           <div class="head-left">
             <img src="@/assets/image/bigScreen/left-arrow.png" class="back-btn" @click="goBack" />
-            <div v-auth="9414" :class="{ 'menu-item': true, actived: path === menuList[0].path }" @click="menuClick(0)">
-              综合展示
-            </div>
+            <div v-auth="9414" :class="{ 'menu-item': true, actived: path === menuList[0].path }">综合展示</div>
             <div v-auth="9410" :class="{ 'menu-item': true, actived: path === menuList[1].path }" @click="menuClick(1)">
               视力筛查
             </div>
-            <div v-auth="9455" :class="{ 'menu-item': true, actived: path === menuList[5].path }" @click="menuClick(5)">
-              脊柱筛查
-            </div>
+            <div v-auth="9455" :class="{ 'menu-item': true, actived: path === menuList[5].path }">脊柱筛查</div>
           </div>
           <div class="head-right">
-            <div v-auth="9411" :class="{ 'menu-item': true, actived: path === menuList[2].path }" @click="menuClick(2)">
-              龋齿筛查
-            </div>
-            <div v-auth="9412" :class="{ 'menu-item': true, actived: path === menuList[3].path }" @click="menuClick(3)">
-              学生体检
-            </div>
-            <div v-auth="9413" :class="{ 'menu-item': true, actived: path === menuList[4].path }" @click="menuClick(4)">
-              学生体测
-            </div>
+            <div v-auth="9411" :class="{ 'menu-item': true, actived: path === menuList[2].path }">龋齿筛查</div>
+            <div v-auth="9412" :class="{ 'menu-item': true, actived: path === menuList[3].path }">学生体检</div>
+            <div v-auth="9413" :class="{ 'menu-item': true, actived: path === menuList[4].path }">学生体测</div>
           </div>
         </div>
       </div>

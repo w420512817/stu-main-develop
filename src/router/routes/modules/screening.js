@@ -2,7 +2,7 @@
  * @Author: wjq-work\wjq wjq4416@163.com
  * @Date: 2024-09-12 14:47:42
  * @LastEditors: wjq-work\wjq
- * @LastEditTime: 2024-09-14 10:37:42
+ * @LastEditTime: 2024-09-20 10:01:15
  */
 const examine = {
   path: '/examine',
@@ -63,7 +63,8 @@ const examine = {
       component: () => import('@common/system-views/examine/plan/schoolPermission.vue'),
       meta: {
         title: '学校审批',
-        keepAlive: true
+        keepAlive: true,
+        hideMenu: true
       }
     }
   ]

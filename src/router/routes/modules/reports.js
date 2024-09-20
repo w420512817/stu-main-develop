@@ -2,7 +2,7 @@
  * @Author: wjq-work\wjq wjq4416@163.com
  * @Date: 2024-09-12 14:47:42
  * @LastEditors: wjq-work\wjq
- * @LastEditTime: 2024-09-19 14:35:05
+ * @LastEditTime: 2024-09-20 09:59:51
  */
 const reports = {
   path: '/reports',
@@ -12,7 +12,8 @@ const reports = {
   meta: {
     title: '报告管理',
     icon: 'icon-park-outline:workbench',
-    orderNo: 4
+    orderNo: 4,
+    hideMenu: true
   },
   children: [
     {
