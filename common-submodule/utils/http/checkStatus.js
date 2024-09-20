@@ -43,11 +43,11 @@ export function checkStatus(status, msg, errorMessageMode = 'message') {
     default:
   }
 
-  if (errMessage) {
-    if (errorMessageMode === 'modal') {
-      window.$dialog?.error({ title: '错误提示', content: errMessage, positiveText: '确认' });
-    } else if (errorMessageMode === 'message') {
-      window.$message?.error(errMessage);
-    }
-  }
+  // if (errMessage) {
+  //   if (errorMessageMode === 'modal') {
+  //     window.$dialog?.error({ title: '错误提示', content: errMessage, positiveText: '确认' });
+  //   } else if (errorMessageMode === 'message') {
+  //     window.$message?.error(errMessage);
+  //   }
+  // }
 }
