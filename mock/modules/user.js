@@ -50,7 +50,7 @@ export function createFakeUserList() {
         orgProperty: 1,
         orgType: 10,
         phone: 'MTMzMDAwMDAwMDA=',
-        realName: '测试',
+        realName: '‌合肥实验小学',
         regionList: [],
         roleName: null,
         sex: '男'

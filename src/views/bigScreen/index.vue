@@ -72,7 +72,7 @@ function menuClick(index) {
   push(menuList[index].path);
 }
 function goBack() {
-  push('/dashboard/overview');
+  push('/homepage/homeIndex');
 }
 
 function loadingFn(num) {
