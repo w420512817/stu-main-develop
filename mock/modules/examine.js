@@ -2,7 +2,7 @@
  * @Author: wjq-work\wjq wjq4416@163.com
  * @Date: 2024-09-09 13:00:59
  * @LastEditors: wjq-work\wjq
- * @LastEditTime: 2024-09-19 18:04:26
+ * @LastEditTime: 2024-09-20 17:23:33
  */
 import { resultPageSuccess, resultSuccess } from '../utils';
 // import { Random } from 'mockjs';
@@ -181,62 +181,62 @@ const getSchoolList = (() => {
   return result;
 })();
 export default [
-  {
-    url: '/basic-api/base-screen/plan/getPlanList',
-    timeout: 100,
-    method: 'get',
-    response: ({ query }) => {
-      const { page = 1, pageSize = 20 } = query;
-      // return resultPageSuccess(page, pageSize, list);
-      return resultPageSuccess(page, pageSize, [
-        {
-          appGroupId: '1054206868520704',
-          appGroupName: '视力筛查应用组',
-          appVersion: 3,
-          applicationId: '1037894827663104',
-          areaId: null,
-          areaLevel: null,
-          checkIndex: null,
-          checkNum: null,
-          control: null,
-          createTime: null,
-          creator: '1280675499532032',
-          creatorName: '安徽教育局',
-          creatorOrg: '1280674354847488',
-          creatorOrgName: '安徽教育局',
-          endDate: null,
-          endTime: '2024-03-31',
-          gradeId: null,
-          gradeName: null,
-          planId: '1283048021704448',
-          planMode: 1,
-          planModeLaber: '计划模式',
-          planName: '安徽省视力筛查计划',
-          planRange: '安徽省',
-          planRangeLaber: null,
-          planStatus: 1,
-          planStatusLaber: '已完成',
-          planType: 101,
-          planTypeLaber: '普查',
-          planYear: 2023,
-          provinceId: null,
-          rate: 100,
-          region: null,
-          remark: null,
-          schoolId: null,
-          schoolName: null,
-          screenNum: 65154,
-          screenType: null,
-          screeningCondition: '[]',
-          screeningConditionList: null,
-          screeningIndex: 0,
-          screeningOptions: null,
-          startTime: '2023-12-18',
-          studentNum: null
-        }
-      ]);
-    }
-  },
+  // {
+  //   url: '/basic-api/base-screen/plan/getPlanList',
+  //   timeout: 100,
+  //   method: 'get',
+  //   response: ({ query }) => {
+  //     const { page = 1, pageSize = 20 } = query;
+  //     // return resultPageSuccess(page, pageSize, list);
+  //     return resultPageSuccess(page, pageSize, [
+  //       {
+  //         appGroupId: '1054206868520704',
+  //         appGroupName: '视力筛查应用组',
+  //         appVersion: 3,
+  //         applicationId: '1037894827663104',
+  //         areaId: null,
+  //         areaLevel: null,
+  //         checkIndex: null,
+  //         checkNum: null,
+  //         control: null,
+  //         createTime: null,
+  //         creator: '1280675499532032',
+  //         creatorName: '安徽教育局',
+  //         creatorOrg: '1280674354847488',
+  //         creatorOrgName: '安徽教育局',
+  //         endDate: null,
+  //         endTime: '2024-03-31',
+  //         gradeId: null,
+  //         gradeName: null,
+  //         planId: '1283048021704448',
+  //         planMode: 1,
+  //         planModeLaber: '计划模式',
+  //         planName: '安徽省视力筛查计划',
+  //         planRange: '安徽省',
+  //         planRangeLaber: null,
+  //         planStatus: 1,
+  //         planStatusLaber: '已完成',
+  //         planType: 101,
+  //         planTypeLaber: '普查',
+  //         planYear: 2023,
+  //         provinceId: null,
+  //         rate: 100,
+  //         region: null,
+  //         remark: null,
+  //         schoolId: null,
+  //         schoolName: null,
+  //         screenNum: 65154,
+  //         screenType: null,
+  //         screeningCondition: '[]',
+  //         screeningConditionList: null,
+  //         screeningIndex: 0,
+  //         screeningOptions: null,
+  //         startTime: '2023-12-18',
+  //         studentNum: null
+  //       }
+  //     ]);
+  //   }
+  // },
   {
     url: '/basic-api/base-screen/plan/planInfo',
     timeout: 100,
