@@ -124,12 +124,12 @@ provide('paramsChange', paramsChange);
     padding: 0 1.67vw 1.9vw 0;
 
     .right-top {
-      height: calc(60% - 10px);
+      height: calc(70% - 10px);
       display: flex;
       flex-direction: column;
     }
     .right-bottom {
-      height: calc(40% - 10px);
+      height: calc(30% - 10px);
       margin-top: 20px;
       display: flex;
       flex-direction: column;

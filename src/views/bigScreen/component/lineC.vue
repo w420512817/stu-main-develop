@@ -5,7 +5,7 @@
       <div class="flex-1">
         <div class="flex items-center h-full">
           <div class="bar" :class="{ bar2: props.bar2 }" :style="`width: ${item.p}%;--w: ${item.p}%`"></div>
-          <span class="num">{{ item.v }}</span>
+          <span class="num">{{ item.v }}{{ unit }}</span>
         </div>
       </div>
     </div>
@@ -14,11 +14,12 @@
 
 <script setup>
 import { ref, watch } from 'vue';
-import { array, bool } from 'vue-types';
+import { array, bool, string } from 'vue-types';
 
 let props = defineProps({
   data: array().def([]),
-  bar2: bool().def(false)
+  bar2: bool().def(false),
+  unit: string().def('')
 });
 
 let data = ref([]);
@@ -29,6 +30,10 @@ function setRate() {
     return pre + item.v;
   }, 0);
   data.value.forEach(item => {
+    if (props.unit) {
+      item.p = item.v;
+      return;
+    }
     item.p = (item.v / t) * 100;
   });
 }
