@@ -73,7 +73,7 @@ export default [
         {
           allCount: '1500',
           regionId: '610100',
-          regionName: '西安市',
+          regionName: '合肥市',
           screenRate: 0.006,
           stdCount: '9',
           typeId: 1,
@@ -100,43 +100,43 @@ export default [
     response: () => {
       return resultSuccess([
         {
-          areaName: '西安市',
+          areaName: '合肥市',
           percent: 0.93
         },
         {
-          areaName: '铜川市',
+          areaName: '‌淮北市',
           percent: 0.95
         },
         {
-          areaName: '宝鸡市',
+          areaName: '‌亳州市',
           percent: 0.96
         },
         {
-          areaName: '咸阳市',
+          areaName: '宿州市',
           percent: 0.92
         },
         {
-          areaName: '渭南市',
+          areaName: '蚌埠市',
           percent: 0.91
         },
         {
-          areaName: '延安市',
+          areaName: '阜阳市',
           percent: 0.93
         },
         {
-          areaName: '汉中市',
+          areaName: '‌淮南市',
           percent: 0.99
         },
         {
-          areaName: '榆林市',
+          areaName: '滁州市',
           percent: 0.91
         },
         {
-          areaName: '安康市',
+          areaName: '六安市',
           percent: 0.84
         },
         {
-          areaName: '商洛市',
+          areaName: '马鞍山市',
           percent: 0.97
         }
       ]);
@@ -149,43 +149,43 @@ export default [
     response: () =>
       resultSuccess([
         {
-          areaName: '西安市',
+          areaName: '合肥市',
           count: 13618
         },
         {
-          areaName: '铜川市',
+          areaName: '‌淮北市',
           count: 4500
         },
         {
-          areaName: '宝鸡市',
+          areaName: '‌亳州市',
           count: 4500
         },
         {
-          areaName: '咸阳市',
+          areaName: '宿州市',
           count: 5404
         },
         {
-          areaName: '渭南市',
+          areaName: '蚌埠市',
           count: 6750
         },
         {
-          areaName: '延安市',
+          areaName: '阜阳市',
           count: 5250
         },
         {
-          areaName: '汉中市',
+          areaName: '‌淮南市',
           count: 4500
         },
         {
-          areaName: '榆林市',
+          areaName: '滁州市',
           count: 5250
         },
         {
-          areaName: '安康市',
+          areaName: '六安市',
           count: 4500
         },
         {
-          areaName: '商洛市',
+          areaName: '马鞍山市',
           count: 16882
         }
       ])

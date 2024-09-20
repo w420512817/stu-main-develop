@@ -23,7 +23,7 @@ const batchContrastData = (() => {
   for (let index = 0; index < 10; index++) {
     result.push({
       'completionCount|0-9999': 1000,
-      'planName|1': [`20@integer(10,20)第一次上报`, `20@integer(10,20)第二次上报`, '陕西省视力筛查计划'],
+      'planName|1': [`20@integer(10,20)第一次上报`, `20@integer(10,20)第二次上报`, '安徽省视力筛查计划'],
       time: '@datetime'
     });
   }
