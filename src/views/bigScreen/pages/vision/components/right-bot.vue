@@ -1,7 +1,7 @@
 <template>
   <SubTitle :sub-title="'远视储备情况'" />
   <div class="expand-all overflow-hidden">
-    <lineC :data="sourceList" />
+    <lineC :data="sourceList" :unit="unit" />
   </div>
 </template>
 
@@ -12,6 +12,7 @@ import lineC from '@/views/bigScreen/component/lineC.vue';
 import SubTitle from '@/views/bigScreen/component/SubTitle.vue';
 import { numToPercent } from '@/views/bigScreen/data/index.data.js';
 
+const unit = '%';
 const params = inject('params');
 const loadingFn = inject('loadingFn');
 

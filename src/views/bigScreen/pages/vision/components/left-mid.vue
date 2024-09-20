@@ -29,7 +29,7 @@ const opts = {
   legend: {
     show: false
   },
-  grid: { top: 20, left: 20 },
+  grid: { top: '15%', left: 20 },
   color: ['#F3C549'],
   xAxis: {
     type: 'category',

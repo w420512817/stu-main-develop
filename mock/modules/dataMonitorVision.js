@@ -613,53 +613,36 @@ export default [
     response: () =>
       resultSuccess([
         {
-          gradeId: '921830381248271',
-          gradeName: '一年级',
-          hyperopiaRate: 0.2936
-        },
-        {
-          gradeId: '921830381248272',
-          gradeName: '二年级',
-          hyperopiaRate: 0.2922
-        },
-        {
-          gradeId: '921830381248273',
-          gradeName: '三年级',
-          hyperopiaRate: 0.2921
-        },
-
-        {
           gradeId: '921830381248274',
-          gradeName: '四年级',
-          hyperopiaRate: 0.2877
+          gradeName: '幼儿园-小班',
+          hyperopiaRate: 0.7877
         },
 
         {
           gradeId: '921830381248275',
-          gradeName: '五年级',
-          hyperopiaRate: 0.3013
+          gradeName: '幼儿园-中班',
+          hyperopiaRate: 0.6013
         },
 
         {
           gradeId: '921830381248276',
-          gradeName: '六年级',
-          hyperopiaRate: 0.2974
-        },
-
-        {
-          gradeId: '921830381248277',
-          gradeName: '初一',
-          hyperopiaRate: 0.2884
+          gradeName: '幼儿园-大班',
+          hyperopiaRate: 0.5974
         },
         {
-          gradeId: '921830381248278',
-          gradeName: '初二',
-          hyperopiaRate: 0.2921
+          gradeId: '921830381248271',
+          gradeName: '一年级',
+          hyperopiaRate: 0.4936
         },
         {
-          gradeId: '921830381248279',
-          gradeName: '初三',
-          hyperopiaRate: 0.2946
+          gradeId: '921830381248272',
+          gradeName: '二年级',
+          hyperopiaRate: 0.4922
+        },
+        {
+          gradeId: '921830381248273',
+          gradeName: '三年级',
+          hyperopiaRate: 0.3921
         }
       ])
   }
