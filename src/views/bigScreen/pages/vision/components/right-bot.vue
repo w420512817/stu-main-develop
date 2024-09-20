@@ -25,12 +25,11 @@ async function getData() {
   try {
     loadingFn(1);
     const res = await hyperopiaRate({ planId: params.planId, areaId: params.id });
-    // console.log('right-bottom', res);
 
     sourceList.value = res?.map(item => {
       return {
-        v: item.gradeName,
-        n: numToPercent(item.hyperopiaRate)
+        v: numToPercent(item.hyperopiaRate),
+        n: item.gradeName
       };
     });
   } finally {
