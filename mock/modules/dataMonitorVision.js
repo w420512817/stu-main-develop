@@ -2,7 +2,7 @@
  * @Author: wjq-work\wjq wjq4416@163.com
  * @Date: 2024-09-09 13:00:59
  * @LastEditors: wjq-work\wjq
- * @LastEditTime: 2024-09-20 17:24:50
+ * @LastEditTime: 2024-09-20 18:14:50
  */
 import { resultPageSuccess, resultSuccess } from '../utils';
 // const basic = process.env.NODE_ENV === 'development' ? 'data-center' : 'data-center';
@@ -229,94 +229,151 @@ export default [
     url: `/basic-api/data-center/screenVision/myopiaRate`,
     timeout: 100,
     method: 'get',
-    response: () =>
-      resultSuccess([
-        {
-          areaId: '1',
-          areaName: '全省',
-          myopiaRate: 0.7955
-        },
-        {
-          areaId: '340100',
-          areaName: '合肥市',
-          myopiaRate: 0.8001
-        },
-        {
-          areaId: '340200',
-          areaName: '芜湖市',
-          myopiaRate: 0.7968
-        },
-        {
-          areaId: '340300',
-          areaName: '蚌埠市',
-          myopiaRate: 0.8032
-        },
-        {
-          areaId: '340400',
-          areaName: '淮南市',
-          myopiaRate: 0.7975
-        },
-        {
-          areaId: '340500',
-          areaName: '马鞍山市',
-          myopiaRate: 0.8028
-        },
-        {
-          areaId: '340600',
-          areaName: '淮北市',
-          myopiaRate: 0.7796
-        },
-        {
-          areaId: '340700',
-          areaName: '铜陵市',
-          myopiaRate: 0.7975
-        },
-        {
-          areaId: '340800',
-          areaName: '安庆市',
-          myopiaRate: 0.7911
-        },
-        {
-          areaId: '341000',
-          areaName: '黄山市',
-          myopiaRate: 0.7897
-        },
-        {
-          areaId: '341100',
-          areaName: '滁州市',
-          myopiaRate: 0.7967
-        },
-        {
-          areaId: '341200',
-          areaName: '阜阳市',
-          myopiaRate: 0.7457
-        },
-        {
-          areaId: '341300',
-          areaName: '宿州市',
-          myopiaRate: 0.7873
-        },
-        {
-          areaId: '341500',
-          areaName: '六安市',
-          myopiaRate: 0.7997
-        },
-        {
-          areaId: '341600',
-          areaName: '亳州市',
-          myopiaRate: 0.7265
-        },
-        {
-          areaId: '341700',
-          areaName: '池州市',
-          myopiaRate: 0.7751
-        },
-        {
-          areaId: '341800',
-          areaName: '宣城市',
-          myopiaRate: 0.7239
-        }
-      ])
+    response: ({ query }) => {
+      const { areaId } = query;
+      let data =
+        areaId == '340000'
+          ? [
+              {
+                areaId: '1',
+                areaName: '全省',
+                myopiaRate: 0.7955
+              },
+              {
+                areaId: '340100',
+                areaName: '合肥市',
+                myopiaRate: 0.8001
+              },
+              {
+                areaId: '340200',
+                areaName: '芜湖市',
+                myopiaRate: 0.7968
+              },
+              {
+                areaId: '340300',
+                areaName: '蚌埠市',
+                myopiaRate: 0.8032
+              },
+              {
+                areaId: '340400',
+                areaName: '淮南市',
+                myopiaRate: 0.7975
+              },
+              {
+                areaId: '340500',
+                areaName: '马鞍山市',
+                myopiaRate: 0.8028
+              },
+              {
+                areaId: '340600',
+                areaName: '淮北市',
+                myopiaRate: 0.7796
+              },
+              {
+                areaId: '340700',
+                areaName: '铜陵市',
+                myopiaRate: 0.7975
+              },
+              {
+                areaId: '340800',
+                areaName: '安庆市',
+                myopiaRate: 0.7911
+              },
+              {
+                areaId: '341000',
+                areaName: '黄山市',
+                myopiaRate: 0.7897
+              },
+              {
+                areaId: '341100',
+                areaName: '滁州市',
+                myopiaRate: 0.7967
+              },
+              {
+                areaId: '341200',
+                areaName: '阜阳市',
+                myopiaRate: 0.7457
+              },
+              {
+                areaId: '341300',
+                areaName: '宿州市',
+                myopiaRate: 0.7873
+              },
+              {
+                areaId: '341500',
+                areaName: '六安市',
+                myopiaRate: 0.7997
+              },
+              {
+                areaId: '341600',
+                areaName: '亳州市',
+                myopiaRate: 0.7265
+              },
+              {
+                areaId: '341700',
+                areaName: '池州市',
+                myopiaRate: 0.7751
+              },
+              {
+                areaId: '341800',
+                areaName: '宣城市',
+                myopiaRate: 0.7239
+              }
+            ]
+          : [
+              {
+                areaId: '1',
+                areaName: '全市',
+                myopiaRate: 0.7485
+              },
+              {
+                areaId: '340102',
+                areaName: '瑶海区',
+                myopiaRate: 0.7759
+              },
+              {
+                areaId: '340103',
+                areaName: '庐阳区',
+                myopiaRate: 0.7368
+              },
+              {
+                areaId: '340104',
+                areaName: '蜀山区',
+                myopiaRate: 0.6822
+              },
+              {
+                areaId: '340111',
+                areaName: '包河区',
+                myopiaRate: 0.7033
+              },
+              {
+                areaId: '340121',
+                areaName: '长丰县',
+                myopiaRate: 0.7362
+              },
+              {
+                areaId: '340122',
+                areaName: '肥东县',
+                myopiaRate: 0.6511
+              },
+              {
+                areaId: '340123',
+                areaName: '肥西县',
+                myopiaRate: 0.7641
+              },
+              {
+                areaId: '340124',
+                areaName: '庐江县',
+                myopiaRate: 0.8293
+              },
+              {
+                areaId: '340181',
+                areaName: '巢湖市',
+                myopiaRate: 0.7535
+              }
+            ];
+      return resultSuccess(data);
+    }
   },
   {
     url: `/basic-api/data-center/screenVision/currentReport`,
@@ -475,13 +532,13 @@ export default [
     method: 'get',
     response: () =>
       resultSuccess([
+        // {
+        //   myopiaRate: 0.8061,
+        //   prefix: 0,
+        //   prefixName: '无'
+        // },
         {
-          myopiaRate: 0.8061,
-          prefix: 0,
-          prefixName: '无'
-        },
-        {
-          myopiaRate: 0.7962,
+          myopiaRate: 0.7562,
           prefix: 2,
           prefixName: '小学'
         },
@@ -583,13 +640,13 @@ export default [
     method: 'get',
     response: () =>
       resultSuccess([
-        {
-          highMyopiaRate: 0.6989,
-          lowMyopiaRate: 0.0413,
-          mediumMyopiaRate: 0.0659,
-          prefix: 0,
-          prefixName: '无'
-        },
+        // {
+        //   highMyopiaRate: 0.6989,
+        //   lowMyopiaRate: 0.0413,
+        //   mediumMyopiaRate: 0.0659,
+        //   prefix: 0,
+        //   prefixName: '无'
+        // },
         {
           highMyopiaRate: 0.6785,
           lowMyopiaRate: 0.0459,

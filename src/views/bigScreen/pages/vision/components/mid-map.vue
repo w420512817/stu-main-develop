@@ -35,6 +35,7 @@ import { getMyopiaRate } from '@/api/bigScreen/vision';
 import { areaTypeMap, numToPercent } from '@/views/bigScreen/data/index.data.js';
 import { useUserStore } from '@/store/modules/user';
 import jsonmap from '../mapah.json';
+import jsonmapcity from '../cityhf.json';
 
 const userStore = useUserStore();
 const {
@@ -139,7 +140,7 @@ let cacheFeatures = [];
 
 // 获取地图边界信息
 async function getGeoJson(id) {
-  return { data: jsonmap };
+  return { data: id == '340000' ? jsonmap : jsonmapcity };
   // return axios({
   //   url: `https://geo.datav.aliyun.com/areas_v3/bound/${id}_full.json`,
   //   method: 'get'
