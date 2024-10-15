@@ -110,7 +110,6 @@ function validate() {
           captchaCode: code,
           captchaKey: unref(captchaRef).key
         });
-
         if (!data?.needResetPassWord) return;
 
         const user = await getUserInfo();

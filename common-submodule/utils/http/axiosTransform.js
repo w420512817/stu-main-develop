@@ -36,9 +36,9 @@ export const transform = {
     // 须重新登录
     if (['600', '601', '602', '603'].includes(data.code)) {
       const userStore = useUserStore();
-      // setTimeout(() => {
-      //   userStore.logout(true);
-      // }, 1000);
+      setTimeout(() => {
+        userStore.logout(true);
+      }, 1000);
     }
 
     if (options.errorMessageMode === 'modal') {

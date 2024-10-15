@@ -2,7 +2,7 @@ import { defHttp } from '@common/utils/http';
 import { isDevMode } from '@common/utils/common/env';
 import { AppTypeEnum } from '@common/enum/pageEnum';
 
-const basic = isDevMode() ? '/student-qyx' : '/student';
+const basic = isDevMode() ? '/student' : '/student';
 const basic_config = isDevMode() ? '/base-config' : '/base-config';
 const base_screen = isDevMode() ? '/base-screen' : '/base-screen';
 const data_center = isDevMode() ? '/data-center' : '/data-center';

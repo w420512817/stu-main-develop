@@ -1,7 +1,13 @@
+/*
+ * @Author: wangjq wjq4416@163.com
+ * @Date: 2024-09-09 14:39:57
+ * @LastEditors: wangjq
+ * @LastEditTime: 2024-10-15 11:54:57
+ */
 import { defHttp } from '@common/utils/http';
 import { isDevMode } from '@common/utils/common/env';
 
-const basic = isDevMode() ? '/auth' : '/auth';
+const basic = isDevMode() ? '/base' : '/base';
 
 const Api = {
   Login: `${basic}/biz/login`,

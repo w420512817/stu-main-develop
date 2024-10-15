@@ -1,19 +1,23 @@
+/*
+ * @Author: wangjq wjq4416@163.com
+ * @Date: 2024-09-09 14:39:57
+ * @LastEditors: wangjq
+ * @LastEditTime: 2024-10-15 11:55:57
+ */
 import { defHttp } from '@common/utils/http';
 import { isDevMode } from '@common/utils/common/env';
 
-const auth = isDevMode() ? '/auth' : '/auth';
-const org = isDevMode() ? '/org' : '/org';
-const basic = isDevMode() ? '/base-config' : '/base-config';
+const base = isDevMode() ? '/base' : '/base';
 
 const basic1 = isDevMode() ? '/data-center' : '/data-center'; // 首页
 const Api = {
-  SmsSend: `${auth}/biz/sms/send`,
-  SmsSendByAccount: `${auth}/biz/sms/bizLogin/send`,
-  GetOrgList: `${org}/organization/schoolSelect`,
-  AreaTree: `${org}/basicConfig/regionTreeList`, // 获取所有与省市区的tree
-  regionTree: `${org}/basicConfig/regionTree`,
+  SmsSend: `${base}/biz/sms/send`,
+  SmsSendByAccount: `${base}/biz/sms/bizLogin/send`,
+  GetOrgList: `${base}/organization/schoolSelect`,
+  AreaTree: `${base}/basicConfig/regionTreeList`, // 获取所有与省市区的tree
+  regionTree: `${base}/basicConfig/regionTree`,
   accountList: `/accountList`, // template Mock
-  noticeNum: `${basic}/notice/noticeNum`, // 消息条数
+  noticeNum: `${base}/notice/noticeNum`, // 消息条数
 
   clickCount: `${basic1}/homepage/clickCount` // 菜单埋点，非政府账号下的首页右侧，常用功能
 };

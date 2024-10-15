@@ -1,7 +1,13 @@
+/*
+ * @Author: wangjq wjq4416@163.com
+ * @Date: 2024-09-09 14:39:58
+ * @LastEditors: wangjq
+ * @LastEditTime: 2024-10-15 17:19:23
+ */
 const { VITE_APP_INDEX_URL = '' } = import.meta.env;
 export const PageEnum = {
   // basic login path
-  BASE_LOGIN: import.meta.env.VITE_AUTH_CENTER_URL,
+  BASE_LOGIN: '/login' || import.meta.env.VITE_AUTH_CENTER_URL,
   // basic home path
   BASE_HOME: VITE_APP_INDEX_URL || '/dashboard/overview',
   // error page path

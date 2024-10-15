@@ -1,7 +1,13 @@
+/*
+ * @Author: wangjq wjq4416@163.com
+ * @Date: 2024-09-09 13:00:59
+ * @LastEditors: wangjq
+ * @LastEditTime: 2024-10-15 18:41:00
+ */
 import { defHttp } from '@common/utils/http';
 import { isDevMode } from '@common/utils/common/env';
 
-const basic = isDevMode() ? '/base-config' : '/base-config';
+const basic = isDevMode() ? '/base' : '/base';
 
 const Api = {
   getSendNoticePageList: `${basic}/notice/sendNoticePageList`, // 发送通知列表

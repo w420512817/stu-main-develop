@@ -1,7 +1,7 @@
 import { defHttp } from '@common/utils/http';
 import { isDevMode } from '@common/utils/common/env';
 
-const basic = isDevMode() ? '/base-config' : '/base-config';
+const basic = isDevMode() ? '/base' : '/base';
 
 const Api = {
   getAcceptNoticePageList: `${basic}/notice/acceptNoticePageList`, // 接收通知列表
