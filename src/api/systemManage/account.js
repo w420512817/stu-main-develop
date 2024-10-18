@@ -1,8 +1,7 @@
 import { defHttp } from '@common/utils/http';
 import { isDevMode } from '@common/utils/common/env';
 
-const basic = isDevMode() ? '/auth' : '/auth';
-const basicOrg = isDevMode() ? '/org' : '/org';
+const basic = isDevMode() ? '/base' : '/base';
 const Api = {
   GetAccountList: `${basic}/account/busUser/get`, // 账号列表
   GetAllAccountList: `${basic}/backstage/busUser/get`, // 账号列表
@@ -14,12 +13,12 @@ const Api = {
   UpdateBusUser: `${basic}/backstage/busUser/update`, // 编辑用户
   UpdateOpsUser: `${basic}/backstage/busUser/update`, // 编辑运维用户
   UserCurPer: `${basic}/schoolUser/schoolPermission/used`, // 当前用户权限
-  UserPerList: `${basicOrg}/schoolUser/schoolTypesGradeClassTree`, // 权限树
+  UserPerList: `${basic}/schoolUser/schoolTypesGradeClassTree`, // 权限树
   // RoleSelectBox: `${basic}/role/selectBox`, // 角色下拉列表
   UserAudit: `${basic}/schoolUser/audit`, // 账号审核
   OrgSelectBox: `${basic}/backstage/org/selectBox`, // 账号审核
-  getAreaOrgList: `${basicOrg}/organization/getAreaOrgList`,
-  schoolSelect: `${basicOrg}/organization/schoolSelect`, // 手机号获取用户信息明文
+  getAreaOrgList: `${basic}/organization/getAreaOrgList`,
+  schoolSelect: `${basic}/organization/schoolSelect`, // 手机号获取用户信息明文
   getSubordinateRegion: `${basic}/account/getSubordinateRegion`,
 
   checkUserInfo: `${basic}/sso/user/getUserInfo`, // 获取统一认证平台用户(手机号身份证脱敏)
