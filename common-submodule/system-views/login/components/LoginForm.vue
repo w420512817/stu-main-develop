@@ -84,8 +84,8 @@ const localKeep = localStorage.getItem(KEEP_LOADING_KEY) === 'true' ? true : fal
 const keepLoading = ref(localKeep);
 
 const model = reactive({
-  account: '',
-  password: '',
+  account: 'gov',
+  password: 'gov123456',
   code: undefined
 });
 
